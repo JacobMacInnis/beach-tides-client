@@ -1,0 +1,9 @@
+input, button {
+  border: 1px solid black;
+  background-color: white;
+  padding: 1%;
+}
+
+#location {
+  width: 60%; 
+}
