@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from './search-form-input';
 import { reduxForm, Field } from 'redux-form';
-import moment from 'moment';
+import {connect} from 'react-redux';
 import { fetchLocation } from './../actions/index';
 
 class SearchForm extends React.Component {
@@ -9,14 +9,14 @@ class SearchForm extends React.Component {
   onSubmit(values) {
     const location = values.location;
     const date = values.date;
-    console.log(location, date)
+    // console.log(location, date)
     return this.props.dispatch(
     fetchLocation(location, date))
   };
   
 
   render() {
-    let today = moment().format('YYYY-MM-DD');
+    // console.log(this.props)
     return (
         <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <h2>SEARCH TIDES</h2>
@@ -31,7 +31,6 @@ class SearchForm extends React.Component {
             name='date'
             type='date'
             label='Or Choose a Date'
-            date={today}
             />
           <button type='submit'>SUBMIT</button>
         </form>
@@ -39,8 +38,13 @@ class SearchForm extends React.Component {
   }
 }
 
-
-export default reduxForm({
+const mapStateToProps = state => {
+  return {
+  initialValues: { date: state.search.date }
+  };
+}
+const searchFrom = reduxForm({
   form: 'search',
-  
 })(SearchForm);
+
+export default connect(mapStateToProps)(searchFrom)

@@ -1,9 +1,16 @@
 import React from 'react';
-import './search-form-input.css'
-export default class Input extends React.Component  {
+import './search-form-input.css';
+import { reduxForm } from 'redux-form';
+
+
+ class Input extends React.Component  {
   
+  onDateChange(newDate) {
+    console.log('HI', newDate);
+  }
+
   render() {
-    
+
     const Element = this.props.element || 'input';
     let error;
     if (this.props.meta.touched && this.props.meta.error) {
@@ -16,24 +23,26 @@ export default class Input extends React.Component  {
             <div className="form-warning">{this.props.meta.warning}</div>
         );
     }
-  
+    
     return (
-
       <div className={`search-form-${this.props.input.name}`}>
         <label htmlFor={this.props.input.name}>
           {this.props.label}
           {error}
           {warning}
         </label>
-        <Element
+        <Element 
+        // onChange={}
           {...this.props.input}
           id={this.props.input.name}
           type={this.props.type}
           placeholder={this.props.placeholder}
           ref={input => (this.input = input)}
-          value={this.props.date}
+          value={this.props.input.value}
         />
       </div>
     )
   }
 }
+
+export default reduxForm({form: 'search'})(Input);
