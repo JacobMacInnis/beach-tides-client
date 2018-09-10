@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../config';
-
+console.log(API_BASE_URL);
 
 export const fetchLocation = (location, date) => dispatch => {
   return fetch(`${API_BASE_URL}/location?location=${location}`)
@@ -16,7 +16,6 @@ export const fetchLocation = (location, date) => dispatch => {
   .catch(err => {
     console.log(err, 'ERROR GET LOCATION')
   });
-  
 }
 
 export const FETCH_LOCATION_REQUEST = 'FETCH_LOCATION_REQUEST';
