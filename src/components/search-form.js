@@ -9,14 +9,12 @@ class SearchForm extends React.Component {
   onSubmit(values) {
     const location = values.location;
     const date = values.date;
-    // console.log(location, date)
     return this.props.dispatch(
     fetchLocation(location, date))
   };
   
-
   render() {
-    // console.log(this.props)
+    console.log('HI', this.props.tideData)
     return (
         <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <h2>SEARCH TIDES</h2>
@@ -39,10 +37,13 @@ class SearchForm extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-  initialValues: { date: state.search.date }
-  };
+  initialValues: { date: state.search.date },
+  tideData: state.search.tideData
+  }
 }
+
 const searchFrom = reduxForm({
   form: 'search',
 })(SearchForm);

@@ -4,10 +4,6 @@ import { reduxForm } from 'redux-form';
 
 
  class Input extends React.Component  {
-  
-  onDateChange(newDate) {
-    console.log('HI', newDate);
-  }
 
   render() {
 
@@ -32,13 +28,11 @@ import { reduxForm } from 'redux-form';
           {warning}
         </label>
         <Element 
-        // onChange={}
           {...this.props.input}
           id={this.props.input.name}
           type={this.props.type}
           placeholder={this.props.placeholder}
           ref={input => (this.input = input)}
-          value={this.props.input.value}
         />
       </div>
     )

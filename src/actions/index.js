@@ -1,16 +1,12 @@
 import {API_BASE_URL} from '../config';
-console.log(API_BASE_URL);
 
 export const fetchLocation = (location, date) => dispatch => {
-  return fetch(`${API_BASE_URL}/location?location=${location}`)
+  return fetch(`${API_BASE_URL}/location?location=${location}&date=${date}`)
   .then(res => {
       return res.json()
   })
-  .then(res => {
-    
-    // location = { lat: res.latitude, lon: res.longitude, city: res.city, state: res.state }
-    console.log(res)
-
+  .then(location => {
+    console.log(location)
     dispatch(fetchLocationSuccess(location));
   })
   .catch(err => {
@@ -23,10 +19,11 @@ export const fetchLocationRequest = () => ({
   type: FETCH_LOCATION_REQUEST
 });
 export const FETCH_LOCATION_SUCCESS = 'FETCH_LOCATION_SUCCESS';
-export const fetchLocationSuccess = ( location) => ({
+export const fetchLocationSuccess = (location) => ({
   type: FETCH_LOCATION_SUCCESS,
   lat: location.lat,
-  lon: location.lon
+  lon: location.lon,
+  tideData: location.extremes
 });
 export const FETCH_LOCATION_ERROR = 'FETCH_LOCATION_ERROR';
 export const fetchLocationError = () => ({
