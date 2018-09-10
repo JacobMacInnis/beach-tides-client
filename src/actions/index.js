@@ -2,7 +2,7 @@ import {API_BASE_URL} from '../config';
 
 
 export const fetchLocation = (location, date) => dispatch => {
-  return fetch(`${API_BASE_URL}location?location=${location}`)
+  return fetch(`${API_BASE_URL}/location?location=${location}`)
   .then(res => {
       return res.json()
   })
