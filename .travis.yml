@@ -1,5 +1,12 @@
 language: node_js
-node_js
+node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: OlvE1sGGrwdS4JYpPmP9HdBigRcMn88WYfI/xoQhktJzyWKa7H/tx+GWhwS21FQYxQODYVv2lEVStxnSGG8BMHnts51L0aU6IMei9/hOKq4LWOT5kiD3c2WMT4XatndWUC8MyRWUwlm+0NW/zKm/dvN+bsfpBzXIaRCxGVpzUb+yx3PMg/9ZO/RoNy4HDZx8q8P8C/L5GbvJIbEbVAOhIgyoCFJIikE/tX4XHEwY7CN9i8/7sA/cvgYrZPPpcNLsWN0jwglT7Q1q0VQy+MTcTtj0nbRVODIBZf2gjeKMSSQuPWfUHqjKxsoBUBhi9O5C3SWRNJGMfmQ/+sZf3uDaswRfyKY3bsJc7EPCJ5ddingbBrOho2AHlM8U8aTbeTW7lOGJYSwE4PpthKA7KxrpFN4lK0YtE3hEyg6AUewmwoQtQ/yVuzDeZlcq1NrBcWKicc+8cxe8x837x/6JlzmHq13akHlqLw60dmeLQfSYTwdpffvCcOB/CnpBOEfcuuJLhsHaP8nbyGVM+vFMiOlj+jW9cFfBweHCrEV3ObZuGgY5uQJLMUDQ5JWOCagB8BF/CqU9psMhuPsyCCVaP3e19YNbeKMEXZ39AgZRAZYs0Y82+8AlNMrklPe+RVO70+3bOosHw8lAQCRmZ/uKS/AYwV7Bf4hzM/anzXNkLJO+5w8=
+  app: calm-temple-68738
+  on:
+    repo: JacobMacInnis/beach-tides-client
