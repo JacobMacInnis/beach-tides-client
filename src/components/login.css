@@ -1,0 +1,16 @@
+.my-facebook-button-class {
+  background-color: #3B5998;
+  font-family: 'Lucida Grande';
+  font-size: 9px;
+  color: white;
+  width: 60px;
+  border-radius: 10%;
+}
+.my-google-button-class {
+  background-color: #dd4b39;
+  /* font-family: 'Lucida Grande'; */
+  font-size: 9px;
+  color: white;
+  width: 60px;
+  border-radius: 10%;
+}

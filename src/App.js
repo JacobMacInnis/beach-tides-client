@@ -9,18 +9,19 @@ import SearchForm from './components/search-form';
 import TideResults from './components/tide-results';
 import Registration from './components/registration';
 import Login from './components/login'
-
+import Favorites from './components/favorites';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
         <Header />
+        <Login />
         <Nav />
         <Route exact path="/" render={() => this.props.tideData.length > 0 ? (<Redirect to='/results' />) : <SearchForm /> }  />
         <Route exact path='/results' component={TideResults} />
         <Route exact path='/Registration' component={Registration} />
-        <Route exact path='/auth/login' component={Login} />
+        <Route exact path="/favorites"  component={Favorites} />
       </div>
     );
   }

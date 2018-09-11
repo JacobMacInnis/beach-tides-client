@@ -1,112 +1,114 @@
-// import React from 'react';
-
-// export default class Login extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <h3>Login using...</h3>
-//         <a className='google-btn' href='/auth/google'>Google</a>
-//       </div>
-//     )
-//   }
-// }     
 import React, { Component } from 'react';
+import './login.css';
+import {connect} from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
 import { GoogleLogin } from 'react-google-login';
 import { GOOGLE_CLIENT_ID, FACEBOOK_APP_ID } from './../config';
+import { authRequest, authSuccess, authError, logout } from './../actions/auth';
+// import { authError } from '../actions/auth';
+class Login extends Component {
+  logout = () => {
+        this.props.dispatch(logout())
+  };
 
-class App extends Component {
-
-    constructor() {
-        super();
-        this.state = { 
-          isAuthenticated: false, 
-          user: null, 
-          token: ''};
-    }
-
-    logout = () => {
-        this.setState({isAuthenticated: false, token: '', user: null})
+  facebookResponse = (response) => {
+    this.props.dispatch(authRequest())
+    const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
+    const options = {
+      method: 'POST',
+      body: tokenBlob,
+      mode: 'cors',
+      cache: 'default'
     };
+    // THIS FETCH HAS 3000 local host. example had 4000
+    fetch('http://localhost:8080/api/v1/auth/facebook', options).then(r => {
+      const token = r.headers.get('x-auth-token');
+      r.json().then(user => {
+        if (token) {
+          this.props.dispatch(authSuccess(user, token))
+        }
+      });
+    })
+    .catch(err => {
+      this.props.dispatch(authError(err))
+    })
+  };
+  
 
-    facebookResponse = (response) => {
-      const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
-        const options = {
-          method: 'POST',
-          body: tokenBlob,
-          mode: 'cors',
-          cache: 'default'
-        };
-        // THIS FETCH HAS 3000 local host. example had 4000
-        fetch('http://localhost:3000/api/v1/auth/facebook', options).then(r => {
-          const token = r.headers.get('x-auth-token');
-          r.json().then(user => {
-            if (token) {
-              this.setState({isAuthentiated: true, user, token})
-            }
-          });
-        })
+  googleResponse = (response) => {
+    this.props.dispatch(authRequest());
+    const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
+    const options = {
+      method: 'POST',
+      body: tokenBlob,
+      mode: 'cors',
+      cache: 'default'
     };
+    fetch('http://localhost:8080/api/v1/auth/google', options)
+    .then(r => {
+      const token = r.headers.get('x-auth-token');
+      r.json()
+      .then(user => {
+        if (token) {
+          // this.setState({isAuthenticated: true, user, token})
+        this.props.dispatch(authSuccess(user, token))
+        }
+      });
+    })
+    .catch(err => {
+      this.props.dispatch(authError(err))
+    })
+  };
 
-    googleResponse = (response) => {
-      const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
-      const options = {
-        method: 'POST',
-        body: tokenBlob,
-        mode: 'cors',
-        cache: 'default'
-      };
-      // THIS FETCH HAS 3000 local host. example had 4000
-      fetch('http://localhost:3000/api/v1/auth/google', options).then(r => {
-        const token = r.headers.get('x-auth-token');
-        r.json().then(user => {
-          if (token) {
-            this.setState({isAuthenticated: true, user, token})
-          }
-        });
-      })
-    };
-    
-    onFailure = (error) => {
-      alert(error);
-    }
-    render() {
-        let content = !!this.state.isAuthenticated ?
-            (
-                <div>
-                    <p>Authenticated</p>
-                    <div>
-                        {this.state.user.email}
-                    </div>
-                    <div>
-                        <button onClick={this.logout} className="button">
-                            Log out
-                        </button>
-                    </div>
-                </div>
-            ) :
-            (
-                <div>
-                    <FacebookLogin
-                        appId={FACEBOOK_APP_ID}
-                        autoLoad={false}
-                        fields="name,email,picture"
-                        callback={this.facebookResponse} />
-                    <GoogleLogin
-                        clientId={GOOGLE_CLIENT_ID}
-                        buttonText="Login"
-                        onSuccess={this.googleResponse}
-                        onFailure={this.googleResponse}
-                    />
-                </div>
-            );
-
-        return (
-            <div className="App">
-                {content}
-            </div>
-        );
-    }
+  onFailure = (error) => {
+    alert(error);
+  }
+  render() {
+    let content = !!this.props.isAuthenticated ? 
+      (
+          <div>
+              <p>Authenticated</p>
+              <div>
+                  {/* {this.state.user.email} */}
+              </div>
+              <div>
+                  <button onClick={this.logout} className="button">
+                      Log out
+                  </button>
+              </div>
+          </div>
+      ) :
+      (
+          <div className='social-login-buttons'>
+              <FacebookLogin
+                  appId={FACEBOOK_APP_ID}
+                  autoLoad={false}
+                  fields="name,email,picture"
+                  callback={this.facebookResponse}
+                  cssClass='my-facebook-button-class' />
+              <GoogleLogin
+                  clientId={GOOGLE_CLIENT_ID}
+                  buttonText="Login with Google"
+                  onSuccess={this.googleResponse}
+                  onFailure={this.googleResponse}
+                  className='my-google-button-class'
+              />
+          </div>
+      );
+    return (
+      <div className="Login">
+        {content}
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user
+  }
+}
+
+
+export default connect(mapStateToProps)(Login);
