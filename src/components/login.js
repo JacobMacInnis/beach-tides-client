@@ -5,6 +5,8 @@ import FacebookLogin from 'react-facebook-login';
 import { GoogleLogin } from 'react-google-login';
 import { GOOGLE_CLIENT_ID, FACEBOOK_APP_ID } from './../config';
 import { authRequest, authSuccess, authError, logout } from './../actions/auth';
+import {saveAuthToken, clearAuthToke} from '../local-storage';
+// import jwtDecode from 'jwt-decode';
 // import { authError } from '../actions/auth';
 class Login extends Component {
   logout = () => {
@@ -23,9 +25,12 @@ class Login extends Component {
     // THIS FETCH HAS 3000 local host. example had 4000
     fetch('http://localhost:8080/api/v1/auth/facebook', options).then(r => {
       const token = r.headers.get('x-auth-token');
+      console.log(token)
       r.json().then(user => {
         if (token) {
-          this.props.dispatch(authSuccess(user, token))
+          console.log(token)
+          this.props.dispatch(authSuccess(user, token));
+          this.props.saveAuthToken(token);
         }
       });
     })
@@ -50,8 +55,10 @@ class Login extends Component {
       r.json()
       .then(user => {
         if (token) {
+          console.log(token, 'TOKEN')
           // this.setState({isAuthenticated: true, user, token})
         this.props.dispatch(authSuccess(user, token))
+        saveAuthToken(token);
         }
       });
     })
@@ -106,7 +113,7 @@ class Login extends Component {
 const mapStateToProps = state => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
-    user: state.auth.user
+    user: state.auth.user 
   }
 }
 

@@ -2,14 +2,16 @@ import {createStore, applyMiddleware, combineReducers} from 'redux'
 import {reducer as formReducer} from 'redux-form'
 import locationReducer from './reducers/index';
 import authReducer from './reducers/auth';
-
+import protectedReducer from './reducers/protected';
 import thunk from 'redux-thunk';
+import { composeWithDevTools} from 'redux-devtools-extension';
 
 export default createStore(
     combineReducers({
         form: formReducer,
         search: locationReducer,
-        auth: authReducer
+        auth: authReducer,
+        protected: protectedReducer
     }),
-    applyMiddleware(thunk)
+    composeWithDevTools(applyMiddleware(thunk))
 );

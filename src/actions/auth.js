@@ -1,4 +1,5 @@
-// import {saveAuthToken, clearAuthToke} from '../local-storage';
+import {saveAuthToken, clearAuthToke} from '../local-storage';
+import jwtDecode from 'jwt-decode';
 
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
@@ -24,14 +25,9 @@ export const logout = () => ({
   type: LOGOUT,
 })
 
-
-// dispatch(authRequest());
-// dispatch(authError(err));
-// Stores the auth token in state and localStorage, and decodes and stores
-// the user data stored in the token
 // export const storeAuthInfo = (authToken, dispatch) => {
-//   // const decodedToken = jwtDecode(authToken);
-//   dispatch(setAuthToken(authToken));
+//   const decodedToken = jwtDecode(authToken);
+//   dispatch(authSuccess(authToken));
 //   dispatch(authSuccess(decodedToken.user));
-//   // saveAuthToken(authToken);
+//   saveAuthToken(authToken);
 // };

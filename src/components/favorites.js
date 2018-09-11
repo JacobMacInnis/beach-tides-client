@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 // import requiresLogin from './requires-login';
-// import {fetchProtectedData} from '../actions/protected-data';
+import {fetchProtectedData} from '../actions/protected-data';
 
 export class Favorites extends React.Component {
-    // componentDidMount() {
-    //     this.props.dispatch(fetchProtectedData());
-    // }
+    componentDidMount() {
+        this.props.dispatch(fetchProtectedData());
+    }
 
     render() {
         console.log(this)
@@ -25,11 +25,12 @@ export class Favorites extends React.Component {
 }
 
 const mapStateToProps = state => {
+    console.log(state)
     const {currentUser} = state.auth;
     return {
         // username: state.auth.currentUser.username,
         // : `${} ${currentUser.lastName}`,
-        protectedData: state.protectedData.data
+        // protectedData: state.protectedData.data
     };
 };
 
