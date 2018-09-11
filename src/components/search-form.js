@@ -14,7 +14,7 @@ class SearchForm extends React.Component {
   };
   
   render() {
-    console.log('HI', this.props.tideData)
+    // console.log('HI', this.props.tideData)
     return (
         <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <h2>SEARCH TIDES</h2>
@@ -37,7 +37,6 @@ class SearchForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
   initialValues: { date: state.search.date },
   tideData: state.search.tideData

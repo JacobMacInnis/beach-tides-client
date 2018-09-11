@@ -1,10 +1,9 @@
 import React from 'react';
-import {Route, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { fetchLocation } from './../actions/index';
 import {Redirect, Link} from 'react-router-dom';
 
-class TideResults extends React.Component {
+class Registration extends React.Component {
   render() {
     // const tideResults = this.props.tideData.map((tide, index) => {
     //   return <li>
@@ -14,8 +13,8 @@ class TideResults extends React.Component {
     return (
       <div>
         <Link to="/">NEW SEARCH</Link>
-        <h3>CITY, STATE</h3>
-        <h4>DATE</h4>
+        <h3></h3>
+        <h4></h4>
         <ul>
           {/* {tideResults} */}
         </ul>
@@ -28,4 +27,4 @@ const mapStateToProps = state => ({
   tideData: state.search.extremes
 }) 
 
-export default withRouter(connect(mapStateToProps)(TideResults))
+export default withRouter(connect(mapStateToProps)(Registration))
