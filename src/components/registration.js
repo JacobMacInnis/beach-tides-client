@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {Redirect, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class Registration extends React.Component {
   render() {
@@ -13,8 +13,7 @@ class Registration extends React.Component {
     return (
       <div>
         <Link to="/">NEW SEARCH</Link>
-        <h3></h3>
-        <h4></h4>
+        <a href="/auth/google">Sign In with Google</a>
         <ul>
           {/* {tideResults} */}
         </ul>

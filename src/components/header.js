@@ -5,7 +5,7 @@ export default class Header extends React.Component {
   render() {
     return (
         <header>
-        <img src={require('./../BeachTides.png')} alt='Beach Tides logo' width='100%'/>
+        <a href='/'><img src={require('./../BeachTides.png')} alt='Beach Tides logo' width='100%'/></a>
         </header>
     )
   }

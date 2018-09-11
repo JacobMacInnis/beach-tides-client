@@ -1,8 +1,7 @@
 import React from 'react';
-import {Route, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { fetchLocation } from './../actions/index';
-import {Redirect, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class TideResults extends React.Component {
   render() {
