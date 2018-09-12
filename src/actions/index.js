@@ -6,7 +6,7 @@ export const fetchLocation = (location, date) => dispatch => {
       return res.json()
   })
   .then(location => {
-    console.log(location)
+    // console.log(location)
     dispatch(fetchLocationSuccess(location));
   })
   .catch(err => {
@@ -21,9 +21,10 @@ export const fetchLocationRequest = () => ({
 export const FETCH_LOCATION_SUCCESS = 'FETCH_LOCATION_SUCCESS';
 export const fetchLocationSuccess = (location) => ({
   type: FETCH_LOCATION_SUCCESS,
-  lat: location.lat,
-  lon: location.lon,
-  tideData: location.extremes
+  tideData: location.extremes,
+  city: location.city,
+  state: location.state,
+  date: location.date
 });
 export const FETCH_LOCATION_ERROR = 'FETCH_LOCATION_ERROR';
 export const fetchLocationError = () => ({

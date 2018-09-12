@@ -3,12 +3,12 @@ import { FETCH_LOCATION_REQUEST, FETCH_LOCATION_SUCCESS, FETCH_LOCATION_ERROR } 
 
 const initialState = {
   date: moment().format('YYYY-MM-DD'),
-  searchDate: '2018-10-30',
-  lat: '',
-  lon: '',
+  searchDate: '',
   loading: false,
   error: null,
-  tideData: []
+  tideData: [],
+  city: '',
+  state: ''
 };
 
 export default function locationReducer(state = initialState, action) {
@@ -18,7 +18,10 @@ export default function locationReducer(state = initialState, action) {
     return Object.assign({}, state, {
       loading: false,
       error: null,
-      tideData: action.tideData
+      tideData: action.tideData,
+      city:  action.city,
+      state: action.state,
+      searchDate: action.date
     })
   } else if (action.type === FETCH_LOCATION_ERROR) {
     return Object.assign({}, state, {loading: false, error: action.error})

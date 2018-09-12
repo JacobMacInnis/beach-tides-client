@@ -13,12 +13,13 @@ import Favorites from './components/favorites';
 
 class App extends React.Component {
   render() {
+    // console.log(this.props.tideData)
     return (
       <div className="App">
         <Header />
         <Login />
         <Nav />
-        <Route exact path="/" render={() => this.props.tideData.length > 0 ? (<Redirect to='/results' />) : <SearchForm /> }  />
+        <Route exact path="/" render={() => this.props.tideData === undefined || this.props.tideData.length < 1 ? <SearchForm />  : (<Redirect to='/results' />) }  />
         <Route exact path='/results' component={TideResults} />
         <Route exact path='/Registration' component={Registration} />
         <Route exact path="/favorites"  component={Favorites} />

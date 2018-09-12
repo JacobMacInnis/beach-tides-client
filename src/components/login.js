@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
 import { GoogleLogin } from 'react-google-login';
 import { GOOGLE_CLIENT_ID, FACEBOOK_APP_ID } from './../config';
+import { Redirect } from 'react-router-dom';
 import { authRequest, authSuccess, authError, logout } from './../actions/auth';
 import {saveAuthToken, clearAuthToke} from '../local-storage';
 // import jwtDecode from 'jwt-decode';
@@ -73,17 +74,18 @@ class Login extends Component {
   render() {
     let content = !!this.props.isAuthenticated ? 
       (
-          <div>
-              <p>Authenticated</p>
-              <div>
-                  {/* {this.state.user.email} */}
-              </div>
-              <div>
-                  <button onClick={this.logout} className="button">
-                      Log out
-                  </button>
-              </div>
-          </div>
+        <Redirect to='/favorites' />
+          // <div>
+          //     <p>Authenticated</p>
+          //     <div>
+          //         {/* {this.state.user.email} */}
+          //     </div>
+          //     <div>
+          //         <button onClick={this.logout} className="button">
+          //             Log out
+          //         </button>
+          //     </div>
+          // </div>
       ) :
       (
           <div className='social-login-buttons'>

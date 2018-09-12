@@ -15,7 +15,7 @@ export const fetchProtectedDataError = error => ({
 
 export const fetchProtectedData = () => (dispatch, getState) => {
     const authToken = loadAuthToken()
-    console.log(authToken)
+    // console.log(authToken)
     return fetch(`${API_BASE_URL}/favorites`, {
         method: 'GET',
         headers: {
