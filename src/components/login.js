@@ -6,7 +6,7 @@ import { GoogleLogin } from 'react-google-login';
 import { GOOGLE_CLIENT_ID, FACEBOOK_APP_ID } from './../config';
 import { Redirect } from 'react-router-dom';
 import { authRequest, authSuccess, authError, logout } from './../actions/auth';
-import {saveAuthToken, clearAuthToke} from '../local-storage';
+import {saveAuthToken } from '../local-storage';
 // import jwtDecode from 'jwt-decode';
 // import { authError } from '../actions/auth';
 class Login extends Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './tide-results.css';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import { withRouter, Redirect } from 'react-router-dom';
 
 class TideResults extends React.Component {
@@ -54,8 +54,6 @@ class TideResults extends React.Component {
       )
     }
   } 
-   
-
 const mapStateToProps = state => {
   // console.log(state)
   return {
@@ -66,6 +64,6 @@ const mapStateToProps = state => {
   }
 } 
 
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+// const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 export default withRouter(connect(mapStateToProps)(TideResults))
