@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, withRouter, Redirect } from 'react-router-dom';
+import { Route, withRouter, Redirect, Link } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/header';
-import Nav from './components/nav';
 import SearchForm from './components/search-form';
 import TideResults from './components/tide-results';
 import Registration from './components/registration';
@@ -18,7 +17,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Login />
-        <Nav />
+        <Link to='/favorites'>SEE MY FAVORITES</Link>
         <Route exact path="/" render={() => this.props.tideData === undefined || this.props.tideData.length < 1 ? <SearchForm />  : (<Redirect to='/results' />) }  />
         <Route exact path='/results' component={TideResults} />
         <Route exact path='/Registration' component={Registration} />

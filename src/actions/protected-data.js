@@ -1,6 +1,12 @@
 import {API_BASE_URL} from '../config';
 import { loadAuthToken } from './../local-storage';
 
+
+export const FETCH_PROTECTED_DATA_REQUEST = 'FETCH_PROTECTED_DATA_REQUEST';
+export const fetchProtectedDataRequest = () => ({
+    type: FETCH_PROTECTED_DATA_REQUEST
+});
+
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = data => ({
     type: FETCH_PROTECTED_DATA_SUCCESS,
@@ -13,9 +19,8 @@ export const fetchProtectedDataError = error => ({
     error
 });
 
-export const fetchProtectedData = () => (dispatch, getState) => {
+export const fetchProtectedData = () => (dispatch) => {
     const authToken = loadAuthToken()
-    // console.log(authToken)
     return fetch(`${API_BASE_URL}/favorites`, {
         method: 'GET',
         headers: {
@@ -23,9 +28,13 @@ export const fetchProtectedData = () => (dispatch, getState) => {
             Authorization: `Bearer ${authToken}`
         }
     })
-        .then(res => res.json())
-        .then(({data}) => dispatch(fetchProtectedDataSuccess(data)))
-        .catch(err => {
-            dispatch(fetchProtectedDataError(err));
-        });
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        dispatch(fetchProtectedDataSuccess(data))
+    })
+    .catch(err => {
+        dispatch(fetchProtectedDataError(err));
+    });
 };

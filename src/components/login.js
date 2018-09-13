@@ -6,13 +6,23 @@ import { GoogleLogin } from 'react-google-login';
 import { GOOGLE_CLIENT_ID, FACEBOOK_APP_ID } from './../config';
 import { Redirect } from 'react-router-dom';
 import { authRequest, authSuccess, authError, logout } from './../actions/auth';
-import {saveAuthToken } from '../local-storage';
+import {saveAuthToken, clearAuthToken} from '../local-storage';
 // import jwtDecode from 'jwt-decode';
 // import { authError } from '../actions/auth';
 class Login extends Component {
+    state = {
+      redirect: false
+    }
   logout = () => {
         this.props.dispatch(logout())
+        clearAuthToken()
+        this.setState({ redirect: true })
   };
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/' />
+    }
+  }
 
   facebookResponse = (response) => {
     this.props.dispatch(authRequest())
@@ -29,9 +39,8 @@ class Login extends Component {
       console.log(token)
       r.json().then(user => {
         if (token) {
-          console.log(token)
           this.props.dispatch(authSuccess(user, token));
-          this.props.saveAuthToken(token);
+          saveAuthToken(token);
         }
       });
     })
@@ -56,8 +65,6 @@ class Login extends Component {
       r.json()
       .then(user => {
         if (token) {
-          console.log(token, 'TOKEN')
-          // this.setState({isAuthenticated: true, user, token})
         this.props.dispatch(authSuccess(user, token))
         saveAuthToken(token);
         }
@@ -102,6 +109,12 @@ class Login extends Component {
                   onFailure={this.googleResponse}
                   className='my-google-button-class'
               />
+              <button onClick={() => this.logout()}>LOG ME OUT</button>
+
+
+              {this.renderRedirect()}
+
+
           </div>
       );
     return (

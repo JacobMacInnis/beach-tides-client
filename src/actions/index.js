@@ -6,7 +6,6 @@ export const fetchLocation = (location, date) => dispatch => {
       return res.json()
   })
   .then(location => {
-    // console.log(location)
     dispatch(fetchLocationSuccess(location));
   })
   .catch(err => {

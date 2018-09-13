@@ -5,13 +5,15 @@ import authReducer from './reducers/auth';
 import protectedReducer from './reducers/protected';
 import thunk from 'redux-thunk';
 import { composeWithDevTools} from 'redux-devtools-extension';
+import favoriteReducer from './reducers/favorite';
 
 export default createStore(
     combineReducers({
         form: formReducer,
         search: locationReducer,
         auth: authReducer,
-        protected: protectedReducer
+        protected: protectedReducer,
+        favorite: favoriteReducer
     }),
     composeWithDevTools(applyMiddleware(thunk))
 );

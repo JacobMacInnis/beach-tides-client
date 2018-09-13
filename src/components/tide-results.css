@@ -1,3 +1,7 @@
 .tide-results {
   list-style: none;
 }
+.tide-list1, .tide-list2, .tide-list3 {
+  padding: 5%;
+  list-style: none;
+}
