@@ -1,3 +1,5 @@
+import { loadAuthToken } from './../local-storage';
+ 
 import {
     AUTH_REQUEST,
     AUTH_SUCCESS,
@@ -8,9 +10,9 @@ import {
 const initialState = {
     loading: false,
     error: null,
-    isAuthenticated: false, 
+    isAuthenticated: !!loadAuthToken()  , 
     user: null, 
-    token: ''// authToken !== null does not mean it has been validated
+    token: loadAuthToken()// authToken !== null does not mean it has been validated
 };
 
 export default function authReducer(state = initialState, action) {
@@ -33,9 +35,9 @@ export default function authReducer(state = initialState, action) {
         });
     } else if (action.type === LOGOUT) {
       return Object.assign({}, state, {
-        isAuthenticated: null,
+        isAuthenticated: false,
         user: null,
-        token: ''
+        token: null
       })
     }
     return state;

@@ -9,6 +9,7 @@ import './favorites.css';
 class Favorites extends React.Component {
     componentDidMount() {
       this.props.dispatch(fetchProtectedData());
+      
     }
     handleSubmitClick = (e) => {
       const newFavorite = this.newFavorite.value;

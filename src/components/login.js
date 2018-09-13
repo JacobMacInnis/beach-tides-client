@@ -11,46 +11,26 @@ import {saveAuthToken, clearAuthToken} from '../local-storage';
 // import { authError } from '../actions/auth';
 class Login extends Component {
     state = {
-      redirect: false
+      logoutRedirect: false,
+      loginRedirect: false
     }
   logout = () => {
-        this.props.dispatch(logout())
-        clearAuthToken()
-        this.setState({ redirect: true })
+    this.props.dispatch(logout());
+    clearAuthToken();
+    this.setState({ logoutRedirect: true });
   };
   renderRedirect = () => {
-    if (this.state.redirect) {
+    if (this.state.logoutRedirect) {
+      this.setState({ logoutRedirect: false })
       return <Redirect to='/' />
+    } else if (this.state.loginRedirect) {
+      this.setState({ loginRedirect: false })
+      return <Redirect to='/favorites' />
     }
   }
 
-  facebookResponse = (response) => {
-    this.props.dispatch(authRequest())
-    const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
-    const options = {
-      method: 'POST',
-      body: tokenBlob,
-      mode: 'cors',
-      cache: 'default'
-    };
-    // THIS FETCH HAS 3000 local host. example had 4000
-    fetch('http://localhost:8080/api/v1/auth/facebook', options).then(r => {
-      const token = r.headers.get('x-auth-token');
-      console.log(token)
-      r.json().then(user => {
-        if (token) {
-          this.props.dispatch(authSuccess(user, token));
-          saveAuthToken(token);
-        }
-      });
-    })
-    .catch(err => {
-      this.props.dispatch(authError(err))
-    })
-  };
-  
-
   googleResponse = (response) => {
+    console.log(response);
     this.props.dispatch(authRequest());
     const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
     const options = {
@@ -60,13 +40,15 @@ class Login extends Component {
       cache: 'default'
     };
     fetch('http://localhost:8080/api/v1/auth/google', options)
-    .then(r => {
-      const token = r.headers.get('x-auth-token');
-      r.json()
+    .then(response => {
+      const token = response.headers.get('x-auth-token');
+      response.json()
       .then(user => {
         if (token) {
-        this.props.dispatch(authSuccess(user, token))
-        saveAuthToken(token);
+          console.log(user, token, 'USER, TOKEN')
+          this.props.dispatch(authSuccess(user, token));
+          saveAuthToken(token);
+          this.setState({ loginRedirect: true })
         }
       });
     })
@@ -78,50 +60,32 @@ class Login extends Component {
   onFailure = (error) => {
     alert(error);
   }
-  render() {
-    let content = !!this.props.isAuthenticated ? 
-      (
-        <Redirect to='/favorites' />
-          // <div>
-          //     <p>Authenticated</p>
-          //     <div>
-          //         {/* {this.state.user.email} */}
-          //     </div>
-          //     <div>
-          //         <button onClick={this.logout} className="button">
-          //             Log out
-          //         </button>
-          //     </div>
-          // </div>
-      ) :
-      (
-          <div className='social-login-buttons'>
-              <FacebookLogin
-                  appId={FACEBOOK_APP_ID}
-                  autoLoad={false}
-                  fields="name,email,picture"
-                  callback={this.facebookResponse}
-                  cssClass='my-facebook-button-class' />
-              <GoogleLogin
+
+  renderConditionalAuthButtons() {
+    if (this.props.isAuthenticated) {
+      return (
+        <div>
+          <button onClick={() => this.logout()}>LOG ME OUT</button>
+          {this.renderRedirect()}
+        </div>
+      )
+    } else {
+      return (<GoogleLogin
                   clientId={GOOGLE_CLIENT_ID}
                   buttonText="Login with Google"
                   onSuccess={this.googleResponse}
                   onFailure={this.googleResponse}
                   className='my-google-button-class'
               />
-              <button onClick={() => this.logout()}>LOG ME OUT</button>
-
-
-              {this.renderRedirect()}
-
-
+      )
+    }
+  }    
+  render() {
+    return  (
+          <div className='social-login-buttons'>
+              {this.renderConditionalAuthButtons()}
           </div>
       );
-    return (
-      <div className="Login">
-        {content}
-      </div>
-    );
   }
 }
 

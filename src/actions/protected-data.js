@@ -20,7 +20,8 @@ export const fetchProtectedDataError = error => ({
 });
 
 export const fetchProtectedData = () => (dispatch) => {
-    const authToken = loadAuthToken()
+    const authToken = loadAuthToken();
+    console.log(authToken, 'THIS IS A GET');
     return fetch(`${API_BASE_URL}/favorites`, {
         method: 'GET',
         headers: {
