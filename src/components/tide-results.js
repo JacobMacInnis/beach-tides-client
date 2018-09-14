@@ -13,7 +13,7 @@ class TideResults extends React.Component {
   }
   render() {
     let tidesDisplay;
-    if (this.props.tideData.length > 0) {
+    if (this.props.tideData !== undefined && this.props.tideData.length > 0 ) {
       const tideData = this.props.tideData;
       let currentDate = null;
       const groupedTides = [];

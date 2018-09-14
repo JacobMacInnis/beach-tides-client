@@ -8,12 +8,15 @@ const initialState = {
   error: null,
   tideData: [],
   city: '',
-  state: ''
+  state: '',
+  serverMessage: null
 };
 
 export default function locationReducer(state = initialState, action) {
   if (action.type === FETCH_LOCATION_REQUEST) {
-    return Object.assign({}, state, {loading: true})
+    return Object.assign({}, state, {
+      loading: true
+    });
   } else if (action.type === FETCH_LOCATION_SUCCESS) {
     return Object.assign({}, state, {
       loading: false,
@@ -22,9 +25,14 @@ export default function locationReducer(state = initialState, action) {
       city:  action.city,
       state: action.state,
       searchDate: action.date
-    })
+    });
   } else if (action.type === FETCH_LOCATION_ERROR) {
-    return Object.assign({}, state, {loading: false, error: action.error})
+    return Object.assign({}, state, {
+      loading: false,
+      tideData: [],
+      error: action.error, 
+      serverMessage: 'SORRY This location was either not found OR not close enough to a United States coast to get accurate Tide Predictions. Please try another location.' 
+    });
   }
     return state;
 }
