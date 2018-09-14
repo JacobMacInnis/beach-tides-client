@@ -46,7 +46,6 @@ class Favorites extends React.Component {
           for (let i = 0; i < favObj.extremes.length; i++) {
             const tide = favObj.extremes[i];
             const time = this.localDateTimeMachine(tide.dt).split(',')[0]
-            // console.log(time, 'time')
             const thisDate =  moment(time, 'MM DD YYYY').format('YYYY MM DD');
             if (currentDate === null || currentDate !== thisDate) {
               currentDate = thisDate;
@@ -58,13 +57,11 @@ class Favorites extends React.Component {
           const tidesDisplay = groupedTides.map((tidesArray, index) => {
             let day;
             day = this.localDateTimeMachine(tidesArray[0].dt).split(',')[0];
-            
             day = moment(day, 'MM DD YYYY').format('dddd, MMMM Do');
             return (
               <div className='tideDisplay' key={index}>
                 <h3>{day}</h3>
                 <div >{singleTide = tidesArray.map((tide, i) => {
-                  console.log(this.localDateTimeMachine(tide.dt).split(',')[1])
                   return <p key={i}>{tide.type} Tide at {moment(this.localDateTimeMachine(tide.dt), 'h:mm a').format('h:mm a')}</p>
                 })
                 }</div>
