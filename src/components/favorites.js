@@ -79,9 +79,7 @@ class Favorites extends React.Component {
         favoritesDisplay = <h2>Loading Your Favorite Tide Predictions</h2>
       } else {
         favoritesDisplay = <h2>YOU CURRENTLY DO NOT HAVE ANY FAVORITE LOCATIONS SAVED</h2>
-      }
-        // console.log(this.props.favoritesData, 'fav', this.props.isAuthenticated);
-        if (this.props.isAuthenticated === false) {
+      } if (this.props.isAuthenticated === false) {
           return <Redirect to="/" />;
         }
         return (

@@ -28,7 +28,7 @@ class SearchForm extends React.Component {
           type='date'
           label='Or Choose a Date'
           />
-        <button type='submit'>SUBMIT</button>
+        <button className='search-form-button' type='submit'>SUBMIT</button>
       </form>
     )
   }

@@ -7,3 +7,14 @@ input, button {
 #location {
   width: 60%; 
 }
+.search-form-location-label, .search-form-date-label {
+  display: block;
+  padding-bottom: .5em;
+}
+.form-location {
+  margin-bottom: .8em;
+}
+
+.form-date {
+  /* margin-top: 1em; */
+}

@@ -1,10 +1,10 @@
 import React from 'react';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 // import { reduxForm } from 'redux-form';
 import { addNewLocation } from './../actions/favorite';
 import { fetchProtectedData } from './../actions/protected-data';
 
-export default class FormFavorites extends React.Component {
+class FormFavorites extends React.Component {
   handleSubmitClick = (e) => {
     const newFavorite = this.newFavorite.value;
     e.preventDefault();
@@ -24,4 +24,4 @@ export default class FormFavorites extends React.Component {
   }
 }
 
-// export default reduxForm(FormFavorites);
+export default connect()(FormFavorites);
