@@ -21,3 +21,12 @@
   -moz-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
   box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
 }
+.city-state {
+  margin: .4em 0 .1em 0;
+}
+.tide-results-date {
+  font-size: 1.25em;
+}
+h5 {
+  margin: 0 0 0 0;
+}

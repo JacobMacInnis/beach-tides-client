@@ -11,49 +11,48 @@ const initialState = {
 
 export default function favoriteReducer(state=initialState, action) {
   if (action.type === NEW_LOCATION_ATTEMPT) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       newFavorite: action.newFavorite
     });
   }
   if (action.type === NEW_LOCATION_REQUEST) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       loading: true,
       serverMessage: 'This location is being added to your Favorites'
     });
   } else if (action.type === NEW_LOCATION_SUCCESS) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       loading: false,
       serverMessage: 'You have sucessfully added a new favorite!'
     });
   } else if (action.type === NEW_LOCATION_ERROR) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       loading: false,
       error: action.error,
       serverMessage: 'SORRY This location was either not found OR not close enough to a United States coast to get accurate Tide Predictions. Please try another location.' 
     });
   } else if (action.type === REMOVE_LOCATION_REQUEST) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       loading: true,
       serverMessage: 'We are removing this location from your favorites'
     });
   } else if (action.type === REMOVE_LOCATION_SUCCESS) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       loading: false,
       serverMessage: 'You have successfully removed this location from your favorites'
     });
   } else if (action.type === REMOVE_LOCATION_ERROR) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       loading: false,
       error: action.error
     });
   } else if (action.type === ON_FAVORITES_ENDPOINT) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       onFavorites: true,
       error: null
     });
-    console.log(state)
   } else if (action.type === OFF_FAVORITES_ENDPOINT) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       onFavorites: false
     })
   }

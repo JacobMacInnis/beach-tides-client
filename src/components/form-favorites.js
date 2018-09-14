@@ -1,28 +1,27 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import { reduxForm, Field } from 'redux-form';
-import Input from './search-form-input';
+// import {connect} from 'react-redux';
+// import { reduxForm } from 'redux-form';
+import { addNewLocation } from './../actions/favorite';
+import { fetchProtectedData } from './../actions/protected-data';
 
-class FormFavorites extends React.Component {
-  
+export default class FormFavorites extends React.Component {
+  handleSubmitClick = (e) => {
+    const newFavorite = this.newFavorite.value;
+    e.preventDefault();
+    this.props.dispatch(addNewLocation(newFavorite))
+    .then(() => {
+      this.props.dispatch(fetchProtectedData());
+    })
+  }
   render() {
       return (
-          <form>
-            <Field 
-              component={Input}
-              name='newFavorite'
-              label='Enter Zipcode or City and State'
-              placeholder='Zipcode OR City and State'
-            />
-            <button type='submit'>SUBMIT</button>
-          </form>
+        <form className='new-favorite-form' >
+          <label htmlFor='new-favorite-input'>ENTER ZIPCODE or CITY FOLLOWED BY COMMA AND TWO LETTER STATE CODE</label>
+          <input name='new-favorite-input' type='text' ref={input => this.newFavorite = input} placeholder='ZIPCODE OR CITY AND STATE'></input>
+          <button type='submit' onClick={this.handleSubmitClick}>SUBMIT</button>
+        </form>
       );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-  };
-};
-
-export default reduxForm(connect(mapStateToProps)(FormFavorites));
+// export default reduxForm(FormFavorites);

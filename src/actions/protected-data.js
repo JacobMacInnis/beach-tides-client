@@ -20,6 +20,7 @@ export const fetchProtectedDataError = error => ({
 });
 
 export const fetchProtectedData = () => (dispatch) => {
+    dispatch(fetchProtectedDataRequest());
     const authToken = loadAuthToken();
     return fetch(`${API_BASE_URL}/favorites`, {
         method: 'GET',
@@ -32,7 +33,7 @@ export const fetchProtectedData = () => (dispatch) => {
         return res.json();
     })
     .then(data => {
-        dispatch(fetchProtectedDataSuccess(data))
+        dispatch(fetchProtectedDataSuccess(data));
     })
     .catch(err => {
         dispatch(fetchProtectedDataError(err));

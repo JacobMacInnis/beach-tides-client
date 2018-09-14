@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import FormFavorites from './form-favorites';
 import { fetchProtectedData } from '../actions/protected-data';
-import { addNewLocation, deleteFavorite, setOnFavorites, offFavoritesEndpoint } from './../actions/favorite';
+import { deleteFavorite, setOnFavorites, offFavoritesEndpoint } from './../actions/favorite';
 import requiresLogin from './requires-login';
 import './favorites.css';
 import moment from 'moment';
@@ -16,14 +17,14 @@ class Favorites extends React.Component {
     componentWillUnmount() {
       this.props.dispatch(offFavoritesEndpoint());
     }
-    handleSubmitClick = (e) => {
-      const newFavorite = this.newFavorite.value;
-      e.preventDefault();
-      this.props.dispatch(addNewLocation(newFavorite))
-      .then(() => {
-        this.props.dispatch(fetchProtectedData());
-      })
-    }
+    // handleSubmitClick = (e) => {
+    //   const newFavorite = this.newFavorite.value;
+    //   e.preventDefault();
+    //   this.props.dispatch(addNewLocation(newFavorite))
+    //   .then(() => {
+    //     this.props.dispatch(fetchProtectedData());
+    //   })
+    // }
     handleRemoveFavorite = value => {
       this.props.dispatch(deleteFavorite(value.target.id))
       .then(() => {
@@ -74,6 +75,8 @@ class Favorites extends React.Component {
             </div>
           )
         })
+      } else if (this.props.loading) {
+        favoritesDisplay = <h2>Loading Your Favorite Tide Predictions</h2>
       } else {
         favoritesDisplay = <h2>YOU CURRENTLY DO NOT HAVE ANY FAVORITE LOCATIONS SAVED</h2>
       }
@@ -84,11 +87,7 @@ class Favorites extends React.Component {
         return (
             <div className="favorites">
                 <h2>FAVORITE LOCATIONS</h2>
-                <form className='new-favorite-form' >
-                  <label htmlFor='new-favorite-input'>ENTER ZIPCODE or CITY FOLLOWED BY COMMA AND TWO LETTER STATE CODE</label>
-                  <input name='new-favorite-input' type='text' ref={input => this.newFavorite = input} placeholder='ZIPCODE OR CITY AND STATE'></input>
-                  <button type='submit' onClick={this.handleSubmitClick}>SUBMIT</button>
-                </form>
+                <FormFavorites /> 
                 <div className='favorite-results'>
                   {favoritesDisplay}
                 </div>
@@ -100,7 +99,8 @@ class Favorites extends React.Component {
 const mapStateToProps = state => {
   return {
     favoritesData: state.protected.data,
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    loading: state.protected.loading
     };
 };
 

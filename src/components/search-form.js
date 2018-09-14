@@ -6,14 +6,12 @@ import { fetchLocation } from './../actions/index';
 import './search-form.css';
 
 class SearchForm extends React.Component {
-  
   onSubmit(values) {
     const location = values.location;
     const date = values.date;
     return this.props.dispatch(
     fetchLocation(location, date))
   };
-  
   render() {
     return (
       <form className='search-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>

@@ -4,6 +4,9 @@
   top: 0;
   background-color: white;
 }
+.header:hover {
+  cursor: pointer;
+}
 .logo {
   display:inline-block;
   margin: 2% 5% 0 5%;

@@ -3,7 +3,7 @@ import './login.css';
 import {connect} from 'react-redux';
 import { GoogleLogin } from 'react-google-login';
 import { GOOGLE_CLIENT_ID } from './../config';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { authRequest, authSuccess, authError, logout } from './../actions/auth';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 // import jwtDecode from 'jwt-decode';
@@ -58,22 +58,37 @@ class Login extends Component {
     alert(error);
   }
 
+  showSeeMyFavoritesLink() {
+    return <Link to='/favorites' className='favorites-link'>MY LOCATIONS</Link>
+  }
   renderConditionalAuthButtons() {
-    if (this.props.isAuthenticated) {
+    if (this.props.isAuthenticated && this.props.onFavorites === false) {
       return (
-        <div>
-          <button onClick={() => this.logout()}>LOG ME OUT</button>
+        <nav className='nav'>
+          {this.showSeeMyFavoritesLink()}
+          <button className='logout' onClick={() => this.logout()}>LOG OUT</button>
           {this.renderRedirect()}
-        </div>
+        </nav>
+      )
+    } else if (this.props.isAuthenticated && this.props.onFavorites) {
+      return (
+        <nav className='nav'>
+          <button className='logout' onClick={() => this.logout()}>LOG OUT</button>
+          {this.renderRedirect()}
+        </nav>
       )
     } else {
-      return (<GoogleLogin
-                  clientId={GOOGLE_CLIENT_ID}
-                  buttonText="Login with Google"
-                  onSuccess={this.googleResponse}
-                  onFailure={this.googleResponse}
-                  className='my-google-button-class'
-              />
+      return (
+        <div className='google-login'>
+          <GoogleLogin
+            clientId={GOOGLE_CLIENT_ID}
+            buttonText="Login with Google"
+            onSuccess={this.googleResponse}
+            onFailure={this.googleResponse}
+            className='my-google-button-class'
+          />
+          <span className='google-login-label'>&nbsp;To Save Favorite Locations!</span>
+        </div>
       )
     }
   }    
@@ -89,7 +104,8 @@ class Login extends Component {
 const mapStateToProps = state => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
-    user: state.auth.user 
+    user: state.auth.user,
+    onFavorites: state.favorite.onFavorites
   }
 }
 

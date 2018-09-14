@@ -3,6 +3,7 @@ import './tide-results.css';
 import {connect} from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import moment from 'moment';
+import SearchForm from './search-form'
 
 class TideResults extends React.Component {
   
@@ -10,10 +11,8 @@ class TideResults extends React.Component {
     const myDate = new Date( epoch * 1000 );
     return myDate.toLocaleString()
   }
-  
   render() {
     let tidesDisplay;
-    console.log(this.props.tideData, 'huh?')
     if (this.props.tideData.length > 0) {
       const tideData = this.props.tideData;
       let currentDate = null;
@@ -21,24 +20,22 @@ class TideResults extends React.Component {
       for (let i = 0; i < tideData.length; i++) {
         const tide = tideData[i];
         const thisDate =  moment(this.localDateTimeMachine(tide.dt)).format('YYYY MM DD');
-        console.log(thisDate)
         if (currentDate === null || currentDate !== thisDate) {
           currentDate = thisDate;
           groupedTides.push([]);
         }
         groupedTides[groupedTides.length - 1].push(tide);
       } 
-      console.log(groupedTides);
-      let singleTide;
       tidesDisplay = groupedTides.map((tidesArray, index) => {
+        let singleTide;
         let day;
         day = this.localDateTimeMachine(tidesArray[0].dt);
         day = moment(day).format('dddd, MMMM Do');
         return (
           <div className='tideDisplay' key={index}>
-            <h3>{day}</h3>
+            <h3 className='tide-results-date'>{day}</h3>
             <div >{singleTide = tidesArray.map((tide, i) => {
-              return <p key={i}>{tide.type} Tide at {moment(this.localDateTimeMachine(tide.dt)).format('h:mm a')}</p>
+              return <p key={i}><strong>{tide.type}</strong> Tide at {moment(this.localDateTimeMachine(tide.dt)).format('h:mm a')}</p>
             })
           }</div>
           </div>
@@ -49,7 +46,6 @@ class TideResults extends React.Component {
     }
     return (
       <div className='tide-results-container'>
-        <a href="/">NEW SEARCH</a>
         <div className='search-tide-results'>
           <h1 className='city-state'>{`${this.props.city}, ${this.props.state}`}</h1>
           <h5>UPCOMING TIDES</h5>
@@ -57,6 +53,7 @@ class TideResults extends React.Component {
             {tidesDisplay}
           </div>
         </div>
+        <SearchForm />
       </div>
     )
   }
