@@ -2,14 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import { fetchProtectedData } from '../actions/protected-data';
-import { addNewLocation, deleteFavorite } from './../actions/favorite';
+import { addNewLocation, deleteFavorite, setOnFavorites, offFavoritesEndpoint } from './../actions/favorite';
 import requiresLogin from './requires-login';
 import './favorites.css';
+import moment from 'moment';
 
 class Favorites extends React.Component {
     componentDidMount() {
-      this.props.dispatch(fetchProtectedData());
-      
+      this.props.dispatch(setOnFavorites())
+      // NOT WORKING
+      this.props.dispatch(fetchProtectedData())
+    }
+    componentWillUnmount() {
+      this.props.dispatch(offFavoritesEndpoint());
     }
     handleSubmitClick = (e) => {
       const newFavorite = this.newFavorite.value;
@@ -31,24 +36,48 @@ class Favorites extends React.Component {
       return myDate.toLocaleString()
     }
     render() {
-      let favoritesResults;
-      if (this.props.favoritesData.length > 0) {
-        favoritesResults = this.props.favoritesData.map((favObj, index) => {
-          return (
-            <div className={favObj.city} key={index}>
-              <h3>{`${favObj.city}, ${favObj.state}`} <button id={favObj._id} value={favObj._id} onClick={target => this.handleRemoveFavorite(target)}>X</button></h3>
-              <h4>UPCOMING TIDES</h4>
-              { favObj.extremes.map((extreme, i) => {
-                return <li key={i}>{this.localDateTimeMachine(extreme.dt)} : {extreme.type.toUpperCase()}</li>
+      let favoritesData = this.props.favoritesData;
+      let favoritesDisplay;
+      if (favoritesData.length > 0) {
+        favoritesDisplay = favoritesData.map((favObj, index) => {
+          const groupedTides = [];
+          let currentDate = null;
+          for (let i = 0; i < favObj.extremes.length; i++) {
+            const tide = favObj.extremes[i];
+            const thisDate =  moment(this.localDateTimeMachine(tide.dt)).format('YYYY MM DD');
+            if (currentDate === null || currentDate !== thisDate) {
+              currentDate = thisDate;
+              groupedTides.push([]);
+            }
+            groupedTides[groupedTides.length - 1].push(tide);
+          } 
+          let singleTide;
+          const tidesDisplay = groupedTides.map((tidesArray, index) => {
+            let day;
+            day = this.localDateTimeMachine(tidesArray[0].dt);
+            day = moment(day).format('dddd, MMMM Do');
+            return (
+              <div className='tideDisplay' key={index}>
+                <h3>{day}</h3>
+                <div >{singleTide = tidesArray.map((tide, i) => {
+                  return <p key={i}>{tide.type} Tide at {moment(this.localDateTimeMachine(tide.dt)).format('h:mm a')}</p>
                 })
-              }
+                }</div>
+              </div>
+            )
+          })
+          return (
+            <div className='location-results' key={index}>
+              <h2>{`${favObj.city}, ${favObj.state}`} <button id={favObj._id} value={favObj._id} onClick={target => this.handleRemoveFavorite(target)}>X</button></h2>
+              <h4>UPCOMING TIDES</h4>
+              {tidesDisplay}
             </div>
           )
         })
       } else {
-        favoritesResults = <h2>YOU CURRENTLY DO NOT HAVE ANY FAVORITE LOCATIONS SAVED</h2>
+        favoritesDisplay = <h2>YOU CURRENTLY DO NOT HAVE ANY FAVORITE LOCATIONS SAVED</h2>
       }
-        console.log(this.props.favoritesData, 'fav', this.props.isAuthenticated);
+        // console.log(this.props.favoritesData, 'fav', this.props.isAuthenticated);
         if (this.props.isAuthenticated === false) {
           return <Redirect to="/" />;
         }
@@ -61,7 +90,7 @@ class Favorites extends React.Component {
                   <button type='submit' onClick={this.handleSubmitClick}>SUBMIT</button>
                 </form>
                 <div className='favorite-results'>
-                  {favoritesResults}
+                  {favoritesDisplay}
                 </div>
             </div>
         );
@@ -76,3 +105,5 @@ const mapStateToProps = state => {
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Favorites));
+
+

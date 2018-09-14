@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './login.css';
 import {connect} from 'react-redux';
-import FacebookLogin from 'react-facebook-login';
 import { GoogleLogin } from 'react-google-login';
-import { GOOGLE_CLIENT_ID, FACEBOOK_APP_ID } from './../config';
+import { GOOGLE_CLIENT_ID } from './../config';
 import { Redirect } from 'react-router-dom';
 import { authRequest, authSuccess, authError, logout } from './../actions/auth';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
@@ -30,7 +29,6 @@ class Login extends Component {
   }
 
   googleResponse = (response) => {
-    console.log(response);
     this.props.dispatch(authRequest());
     const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
     const options = {
@@ -45,7 +43,6 @@ class Login extends Component {
       response.json()
       .then(user => {
         if (token) {
-          console.log(user, token, 'USER, TOKEN')
           this.props.dispatch(authSuccess(user, token));
           saveAuthToken(token);
           this.setState({ loginRedirect: true })

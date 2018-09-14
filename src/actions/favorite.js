@@ -5,34 +5,41 @@ export const NEW_LOCATION_ATTEMPT = 'NEW_LOCATION_ATTEMPT';
 export const newLocationAttempt = newFavorite => ({
   type: NEW_LOCATION_ATTEMPT,
   newFavorite
-})
+});
 export const NEW_LOCATION_REQUEST = 'NEW_LOCATION_REQUEST';
 export const newLocationRequest = () => ({
   type: NEW_LOCATION_REQUEST
-})
+});
 export const NEW_LOCATION_SUCCESS = 'NEW_LOCATION_SUCCESS';
 export const newLocationSuccess = () => ({
   type: NEW_LOCATION_SUCCESS
-})
+});
 export const NEW_LOCATION_ERROR = 'NEW_LOCATION_ERROR';
 export const newLocationError = err => ({
   type: NEW_LOCATION_ERROR,
   err
-})
+});
 export const REMOVE_LOCATION_REQUEST = 'REMOVE_LOCATION_REQUEST';
 export const removeLocationRequest = () => ({
   type: REMOVE_LOCATION_REQUEST
-})
+});
 export const REMOVE_LOCATION_SUCCESS = 'REMOVE_LOCATION_SUCCESS';
 export const removeLocationSuccess = () => ({
   type: REMOVE_LOCATION_SUCCESS
-})
+});
 export const REMOVE_LOCATION_ERROR = 'REMOVE_LOCATION_ERROR';
 export const removeLocationError = err => ({
   type: REMOVE_LOCATION_ERROR,
   err
-})
-
+});
+export const ON_FAVORITES_ENDPOINT = 'ON_FAVORITES_ENDPOINT';
+export const onFavoritesEndpoint = () => ({
+  type: ON_FAVORITES_ENDPOINT
+});
+export const OFF_FAVORITES_ENDPOINT = 'OFF_FAVORITES_ENDPOINT';
+export const offFavoritesEndpoint = () => ({
+  type: OFF_FAVORITES_ENDPOINT
+});
 
 export const addNewLocation = newFavorite => dispatch => {
   dispatch(newLocationAttempt(newFavorite));
@@ -72,3 +79,7 @@ export const deleteFavorite = id => dispatch => {
     dispatch(removeLocationError(err))
   })
 }
+
+export const setOnFavorites = () => (dispatch) => {
+  dispatch(onFavoritesEndpoint());
+};

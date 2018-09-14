@@ -1,3 +1,21 @@
-header {
-  margin: 5% 10%;
+.header {
+  width:100%;
+  position: fixed;
+  top: 0;
+  background-color: white;
+}
+.logo {
+  display:inline-block;
+  margin: 2% 5% 0 5%;
+  /* margin: 5% 10% 0% 10%; */
+  /* position: fixed;
+  top: 2%;
+  background-color: white;
+  /* border: 1px solid rgba(7,19,69,1); */
+  /* border-radius: 2%;  */
+}
+hr {
+  height: 3px;
+  background: rgba(7,19,69,1);
+  margin-bottom: 0;
 }
