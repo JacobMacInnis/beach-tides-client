@@ -17,6 +17,7 @@ class Favorites extends React.Component {
       this.props.dispatch(offFavoritesEndpoint());
     }
     handleRemoveFavorite = value => {
+      console.log(value)
       this.props.dispatch(deleteFavorite(value.target.id))
       .then(() => {
         this.props.dispatch(fetchProtectedData());
@@ -60,7 +61,7 @@ class Favorites extends React.Component {
           })
           return (
             <div className='location-results' key={index}>
-              <h2>{`${favObj.city}, ${favObj.state}`} <button id={favObj._id} value={favObj._id} onClick={target => this.handleRemoveFavorite(target)}>X</button></h2>
+              <h2>{`${favObj.city}, ${favObj.state}`} <button className='remove-favorite' id={favObj._id} value={favObj._id} onClick={target => this.handleRemoveFavorite(target)}>X</button></h2>
               <h4>UPCOMING TIDES</h4>
               {tidesDisplay}
             </div>
