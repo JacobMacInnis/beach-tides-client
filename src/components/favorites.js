@@ -11,27 +11,17 @@ import moment from 'moment';
 class Favorites extends React.Component {
     componentDidMount() {
       this.props.dispatch(setOnFavorites())
-      // NOT WORKING
       this.props.dispatch(fetchProtectedData())
     }
     componentWillUnmount() {
       this.props.dispatch(offFavoritesEndpoint());
     }
-    // handleSubmitClick = (e) => {
-    //   const newFavorite = this.newFavorite.value;
-    //   e.preventDefault();
-    //   this.props.dispatch(addNewLocation(newFavorite))
-    //   .then(() => {
-    //     this.props.dispatch(fetchProtectedData());
-    //   })
-    // }
     handleRemoveFavorite = value => {
       this.props.dispatch(deleteFavorite(value.target.id))
       .then(() => {
         this.props.dispatch(fetchProtectedData());
       })
     }
-
     localDateTimeMachine(epoch) {
       const myDate = new Date( epoch * 1000 );
       return myDate.toLocaleString()
@@ -84,13 +74,13 @@ class Favorites extends React.Component {
           return <Redirect to="/" />;
         }
         return (
-            <div className="favorites">
-                <h2>FAVORITE LOCATIONS</h2>
-                <FormFavorites /> 
-                <div className='favorite-results'>
-                  {favoritesDisplay}
-                </div>
-            </div>
+          <div className="favorites">
+              <h2>FAVORITE LOCATIONS</h2>
+              <FormFavorites /> 
+              <div className='favorite-results'>
+                {favoritesDisplay}
+              </div>
+          </div>
         );
     }
 }

@@ -18,7 +18,6 @@ export default function protectedReducer(state = initialState, action) {
     });
   } 
   else if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
-    console.log(action.data, 'data')
     return Object.assign({}, state, {
       data: action.data,
       loading: false,
