@@ -3,6 +3,7 @@ import Input from './search-form-input';
 import { reduxForm, Field } from 'redux-form';
 import {connect} from 'react-redux';
 import { fetchLocation } from './../actions/index';
+import './search-form.css';
 
 class SearchForm extends React.Component {
   
@@ -14,24 +15,23 @@ class SearchForm extends React.Component {
   };
   
   render() {
-    // console.log('HI', this.props.tideData)
     return (
-        <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-          <h2>SEARCH TIDES</h2>
-          <Field 
-            component={Input}
-            name='location'
-            label='Please Enter Zipcode or City and State'
-            placeholder='Zipcode OR City and State'
-            />
-          <Field 
-            component={Input}
-            name='date'
-            type='date'
-            label='Or Choose a Date'
-            />
-          <button type='submit'>SUBMIT</button>
-        </form>
+      <form className='search-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+        <h2>SEARCH TIDES</h2>
+        <Field 
+          component={Input}
+          name='location'
+          label='Please Enter Zipcode or City and State'
+          placeholder='Zipcode OR City and State'
+          />
+        <Field 
+          component={Input}
+          name='date'
+          type='date'
+          label='Or Choose a Date'
+          />
+        <button type='submit'>SUBMIT</button>
+      </form>
     )
   }
 }

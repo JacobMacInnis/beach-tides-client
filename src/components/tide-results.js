@@ -48,14 +48,14 @@ class TideResults extends React.Component {
       return <Redirect to='/' />
     }
     return (
-      <div className='tide-results'>
+      <div className='tide-results-container'>
         <a href="/">NEW SEARCH</a>
-        <div className='city-state-header'>
-          <h3 className='city-state'>{`${this.props.city}, ${this.props.state}`}</h3>
+        <div className='search-tide-results'>
+          <h1 className='city-state'>{`${this.props.city}, ${this.props.state}`}</h1>
           <h5>UPCOMING TIDES</h5>
-        </div>
-        <div>
-          {tidesDisplay}
+          <div>
+            {tidesDisplay}
+          </div>
         </div>
       </div>
     )
