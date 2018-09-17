@@ -131,7 +131,6 @@ export const changeTheme = toggleTheme => dispatch => {
   .then(res => res.json())
   .then((data) => {
     dispatch(changeThemeSuccess(data.theme));
-    console.log(data.theme, 'DATA');
   })
   .catch(err => {
     dispatch(changeThemeError(err))
@@ -151,7 +150,6 @@ export const fetchTheme = () => dispatch => {
   .then(res => res.json())
   .then((data) => {
     dispatch(getThemeSuccess(data.theme));
-    console.log(data.theme, 'GET_DATA');
   })
   .catch(err => {
     dispatch(getThemeError(err))
