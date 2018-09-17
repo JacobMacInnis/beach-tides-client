@@ -3,6 +3,7 @@ node_js: node
 cache:
   directories:
   - node_modules
+script: npm run build
 deploy:
   provider: heroku
   api_key:
