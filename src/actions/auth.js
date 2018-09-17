@@ -20,3 +20,8 @@ export const LOGOUT = 'LOGOUT';
 export const logout = () => ({
   type: LOGOUT,
 })
+
+export const SET_FIRST_LOGIN = 'SET_FIRST_LOGIN';
+export const setFirstLogin = () => ({
+  type: SET_FIRST_LOGIN
+})

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Header extends React.Component {
   render() {
     return (
-        <header className='header' className={this.props.theme === 'night' ? 'header night-header' : 'header day-header'}>
+        <header className={`header ${this.props.theme === 'night' ? 'night-header' : 'day-header'}`}>
         <a className='logo' href='/'><img src={require('./../img/BeachTidesTransparent.png')} alt='Beach Tides logo' width='100%'/></a>
         {/* <hr /> */}
         </header>

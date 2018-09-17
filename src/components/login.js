@@ -18,7 +18,7 @@ class Login extends Component {
     this.props.dispatch(logout());
     clearAuthToken();
     this.setState({ logoutRedirect: true });
-    this.props.dispatch(setThemeOnLogout());
+    this.props.dispatch(setThemeOnLogout)
   };
   renderRedirect = () => {
     if (this.state.logoutRedirect) {

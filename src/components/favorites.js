@@ -46,7 +46,6 @@ class Favorites extends React.Component {
             }
             groupedTides[groupedTides.length - 1].push(tide);
           } 
-          let singleTide;
           const tidesDisplay = groupedTides.map((tidesArray, index) => {
             let day;
             day = this.localDateTimeMachine(tidesArray[0].dt).split(',')[0];
@@ -54,7 +53,7 @@ class Favorites extends React.Component {
             return (
               <div className='tideDisplay' key={index}>
                 <h3>{day}</h3>
-                <div >{singleTide = tidesArray.map((tide, i) => {
+                <div >{tidesArray.map((tide, i) => {
                   return <p key={i}>{tide.type} Tide at {moment(this.localDateTimeMachine(tide.dt), 'h:mm a').format('h:mm a')}</p>
                 })
                 }</div>

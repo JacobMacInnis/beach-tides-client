@@ -27,14 +27,14 @@ class TideResults extends React.Component {
         groupedTides[groupedTides.length - 1].push(tide);
       } 
       tidesDisplay = groupedTides.map((tidesArray, index) => {
-        let singleTide;
+        
         let day;
         day = this.localDateTimeMachine(tidesArray[0].dt).split(',')[0];
         day = moment(day,'MM DD YYYY').format('dddd, MMMM Do');
         return (
           <div className='tideDisplay' key={index}>
             <h3 className='tide-results-date'>{day}</h3>
-            <div >{singleTide = tidesArray.map((tide, i) => {
+            <div >{tidesArray.map((tide, i) => {
               return <p key={i}><strong>{tide.type}</strong> Tide at {moment(this.localDateTimeMachine(tide.dt).split(',')[1], 'h:mm a').format('h:mm a')}</p>
             })
           }</div>
