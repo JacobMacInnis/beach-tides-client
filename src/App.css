@@ -1,10 +1,21 @@
-
- .App {
-  text-align: center;
-}
 body {
   padding: 0;
-  margin-top: 30%;
+  background-color: #2C365D; 
+}
+ .App {
+  text-align: center;
+  padding-top: 30%;
+}
+.day {
+  background-color: white;
+  height: 100vh;
+}
+.night {
+  background-color: #2C365D;
+  color: white;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /*

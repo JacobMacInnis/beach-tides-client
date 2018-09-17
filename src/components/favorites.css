@@ -7,8 +7,8 @@
   margin: 7%;
   border-radius: 2%;
   -webkit-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
--moz-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
+  -moz-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
+  box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
 }
 .remove-favorite {
   border: 1px solid grey;

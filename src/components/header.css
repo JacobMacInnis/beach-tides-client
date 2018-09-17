@@ -3,6 +3,21 @@
   position: fixed;
   top: 0;
   background-color: white;
+  z-index: 1000;
+  border-bottom: 3px solid rgba(7,19,69,1);
+}
+.day-header {
+  background-image:
+    linear-gradient(
+    rgba(253, 229, 122, 0.253), rgba(86, 250, 214, 0.253)
+    );
+}
+.night-header {
+  background-image:
+    linear-gradient(
+      rgb(167, 167, 167), rgb(236, 236, 236)
+    );
+  border-bottom: 3px solid rgba(25,201,255,0.59);
 }
 .header:hover {
   cursor: pointer;
@@ -10,6 +25,7 @@
 .logo {
   display:inline-block;
   margin: 2% 5% 0 5%;
+  padding-bottom: 5px;
   /* margin: 5% 10% 0% 10%; */
   /* position: fixed;
   top: 2%;
@@ -17,8 +33,8 @@
   /* border: 1px solid rgba(7,19,69,1); */
   /* border-radius: 2%;  */
 }
-hr {
+/* hr {
   height: 3px;
   background: rgba(7,19,69,1);
   margin-bottom: 0;
-}
+} */

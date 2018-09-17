@@ -8,6 +8,7 @@ import { authRequest, authSuccess, authError, logout } from './../actions/auth';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 // import jwtDecode from 'jwt-decode';
 // import { authError } from '../actions/auth';
+import { setThemeOnLogout } from './../actions/favorite';
 class Login extends Component {
     state = {
       logoutRedirect: false,
@@ -17,6 +18,7 @@ class Login extends Component {
     this.props.dispatch(logout());
     clearAuthToken();
     this.setState({ logoutRedirect: true });
+    this.props.dispatch(setThemeOnLogout());
   };
   renderRedirect = () => {
     if (this.state.logoutRedirect) {

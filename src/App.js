@@ -6,12 +6,18 @@ import SearchForm from './components/search-form';
 import TideResults from './components/tide-results';
 import Login from './components/login'
 import Favorites from './components/favorites';
+import { fetchTheme } from './actions/favorite';
 import './App.css';
 
 class App extends React.Component {
+  componentDidMount() {
+    if(this.props.isAuthenticated) {
+      this.props.dispatch(fetchTheme());
+    }
+  }
   render() {
     return (
-      <div className="App">
+      <div className={this.props.theme === 'night' ? 'App night' : 'App day'} >
         <Header />
         <Login />
         <Route exact path="/" render={() => this.props.tideData === undefined || this.props.tideData.length < 1 ? <SearchForm />  : (<Redirect to='/results' />) }  />
@@ -24,7 +30,9 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return { 
-    tideData: state.search.tideData
+    tideData: state.search.tideData,
+    theme: state.favorite.theme,
+    isAuthenticated: state.auth.isAuthenticated,
   }
 }
 

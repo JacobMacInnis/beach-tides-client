@@ -2,16 +2,18 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import FormFavorites from './form-favorites';
+import Theme from './theme';
 import { fetchProtectedData } from '../actions/protected-data';
-import { deleteFavorite, setOnFavorites, offFavoritesEndpoint } from './../actions/favorite';
+import { deleteFavorite, setOnFavorites, offFavoritesEndpoint, fetchTheme } from './../actions/favorite';
 import requiresLogin from './requires-login';
 import './favorites.css';
 import moment from 'moment';
 
 class Favorites extends React.Component {
     componentDidMount() {
-      this.props.dispatch(setOnFavorites())
-      this.props.dispatch(fetchProtectedData())
+      this.props.dispatch(setOnFavorites());
+      this.props.dispatch(fetchTheme());
+      this.props.dispatch(fetchProtectedData());
     }
     componentWillUnmount() {
       this.props.dispatch(offFavoritesEndpoint());
@@ -76,6 +78,7 @@ class Favorites extends React.Component {
         }
         return (
           <div className="favorites">
+              <Theme />
               <h2>FAVORITE LOCATIONS</h2>
               <FormFavorites /> 
               <div className='favorite-results'>
