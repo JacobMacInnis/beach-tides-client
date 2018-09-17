@@ -4,8 +4,7 @@ import {
     AUTH_REQUEST,
     AUTH_SUCCESS,
     AUTH_ERROR,
-    LOGOUT,
-    SET_FIRST_LOGIN
+    LOGOUT
 } from '../actions/auth';
 
 const initialState = {
@@ -13,8 +12,7 @@ const initialState = {
     error: null,
     isAuthenticated: !!loadAuthToken()  , 
     user: null, 
-    token: loadAuthToken(),// authToken !== null does not mean it has been validated
-    firstLogin: true
+    token: loadAuthToken()// authToken !== null does not mean it has been validated
 };
 
 export default function authReducer(state = initialState, action) {
@@ -41,10 +39,6 @@ export default function authReducer(state = initialState, action) {
         user: null,
         token: null
       })
-    } else if (action.type === SET_FIRST_LOGIN) {
-      return Object.assign({}, state, {
-        firstLogin: false
-      })
-    }
+    } 
     return state;
 }

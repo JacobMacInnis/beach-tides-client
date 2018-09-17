@@ -3,33 +3,15 @@ import './login.css';
 import {connect} from 'react-redux';
 import { GoogleLogin } from 'react-google-login';
 import { GOOGLE_CLIENT_ID } from './../config';
-import { Redirect, Link } from 'react-router-dom';
-import { authRequest, authSuccess, authError, logout } from './../actions/auth';
-import {saveAuthToken, clearAuthToken} from '../local-storage';
-// import jwtDecode from 'jwt-decode';
-// import { authError } from '../actions/auth';
-import { setThemeOnLogout } from './../actions/favorite';
+import { Redirect } from 'react-router-dom';
+import { authRequest, authSuccess, authError } from './../actions/auth';
+// import { setRedirect } from './../actions/protected-data'
+import {saveAuthToken } from '../local-storage';
 class Login extends Component {
-    state = {
-      logoutRedirect: false,
-      loginRedirect: false
-    }
-  logout = () => {
-    this.props.dispatch(logout());
-    clearAuthToken();
-    this.setState({ logoutRedirect: true });
-    this.props.dispatch(setThemeOnLogout)
-  };
   renderRedirect = () => {
-    if (this.state.logoutRedirect) {
-      this.setState({ logoutRedirect: false })
-      return <Redirect to='/' />
-    } else if (this.state.loginRedirect) {
-      this.setState({ loginRedirect: false })
+    console.log('tried');
       return <Redirect to='/favorites' />
-    }
   }
-
   googleResponse = (response) => {
     this.props.dispatch(authRequest());
     const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
@@ -47,40 +29,17 @@ class Login extends Component {
         if (token) {
           this.props.dispatch(authSuccess(user, token));
           saveAuthToken(token);
-          this.setState({ loginRedirect: true })
+          // this.props.dispatch(setRedirect());
+          return this.renderRedirect();
         }
       });
     })
     .catch(err => {
       this.props.dispatch(authError(err))
-    })
+    });
   };
-
-  onFailure = (error) => {
-    alert(error);
-  }
-
-  showSeeMyFavoritesLink() {
-    return <Link to='/favorites' className='favorites-link'>MY LOCATIONS</Link>
-  }
-  renderConditionalAuthButtons() {
-    if (this.props.isAuthenticated && this.props.onFavorites === false) {
-      return (
-        <nav className='nav'>
-          {this.showSeeMyFavoritesLink()}
-          <button className='logout' onClick={() => this.logout()}>LOG OUT</button>
-          {this.renderRedirect()}
-        </nav>
-      )
-    } else if (this.props.isAuthenticated && this.props.onFavorites) {
-      return (
-        <nav className='nav'>
-          <button className='logout' onClick={() => this.logout()}>LOG OUT</button>
-          {this.renderRedirect()}
-        </nav>
-      )
-    } else {
-      return (
+  render() {
+    return  (
         <div className='google-login'>
           <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
@@ -91,14 +50,6 @@ class Login extends Component {
           />
           <span className='google-login-label'>&nbsp;To Save Favorite Locations!</span>
         </div>
-      )
-    }
-  }    
-  render() {
-    return  (
-          <div className='social-login-buttons'>
-              {this.renderConditionalAuthButtons()}
-          </div>
       );
   }
 }
