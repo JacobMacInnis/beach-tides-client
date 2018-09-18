@@ -30,8 +30,8 @@ class Login extends Component {
         if (token) {
           this.props.dispatch(authSuccess(user, token));
           saveAuthToken(token);
-          // this.props.dispatch(setRedirect());
-          return this.renderRedirect();
+          console.log('props', this.props)
+          this.props.history.push('/favorites')
         }
       });
     })
