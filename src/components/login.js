@@ -30,7 +30,6 @@ class Login extends Component {
         if (token) {
           this.props.dispatch(authSuccess(user, token));
           saveAuthToken(token);
-          console.log('props', this.props)
           this.props.history.push('/favorites')
         }
       });

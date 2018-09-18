@@ -1,1 +1,1 @@
-Beach Tides Client
+# [Beach Tides Client] (http://www.beach.com)
