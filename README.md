@@ -1,1 +1,1 @@
-# [Beach Tides Client] (http://www.beach.com)
+# (http://www.beachtides.us "Beach Tides")
