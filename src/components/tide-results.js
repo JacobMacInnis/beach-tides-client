@@ -32,7 +32,7 @@ class TideResults extends React.Component {
         day = this.localDateTimeMachine(tidesArray[0].dt).split(',')[0];
         day = moment(day,'MM DD YYYY').format('dddd, MMMM Do');
         return (
-          <div className='tideDisplay' key={index}>
+          <div className={this.props.theme === 'night' ? 'tide-display-night' : 'tide-display-day'} key={index}>
             <h3 className='tide-results-date'>{day}</h3>
             <div >{tidesArray.map((tide, i) => {
               return <p key={i}><strong>{tide.type}</strong> Tide at {moment(this.localDateTimeMachine(tide.dt).split(',')[1], 'h:mm a').format('h:mm a')}</p>
@@ -46,7 +46,7 @@ class TideResults extends React.Component {
     }
     return (
       <div className='tide-results-container'>
-        <div className='search-tide-results'>
+        <div className='search-tide-results'className={this.props.theme === 'night' ? 'search-tide-results-night' : 'search-tide-results-day'}>
           <h1 className='city-state'>{`${this.props.city}, ${this.props.state}`}</h1>
           <h5>UPCOMING TIDES</h5>
           <div>
@@ -63,7 +63,8 @@ const mapStateToProps = state => {
     tideData: state.search.tideData,
     city: state.search.city,
     state: state.search.state,
-    searchDate: state.search.searchDate
+    searchDate: state.search.searchDate,
+    theme: state.favorite.theme
   }
 } 
 

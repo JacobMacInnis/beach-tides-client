@@ -15,8 +15,8 @@ class SearchForm extends React.Component {
   };
   render() {
     return (
-      <form className='search-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <h2 className='search-tides-title'>SEARCH TIDES</h2>
+      <form className={this.props.theme === 'night' ? 'search-form-night' : 'search-form-day'} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+        <h2 className={this.props.theme === 'night' ? 'search-tides-title-night' : 'search-tides-title-day'}>SEARCH TIDES</h2>
         <Field 
           component={Input}
           name='location'
@@ -38,7 +38,8 @@ class SearchForm extends React.Component {
 const mapStateToProps = state => {
   return {
   initialValues: { date: state.search.date },
-  tideData: state.search.tideData
+  tideData: state.search.tideData,
+  theme: state.favorite.theme
   }
 }
 

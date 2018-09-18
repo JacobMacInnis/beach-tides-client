@@ -51,7 +51,7 @@ class Favorites extends React.Component {
             day = this.localDateTimeMachine(tidesArray[0].dt).split(',')[0];
             day = moment(day, 'MM DD YYYY').format('dddd, MMMM Do');
             return (
-              <div className='tideDisplay' key={index}>
+              <div className={this.props.theme === 'night' ? 'tide-display-night' : 'tide-display-day'} key={index}>
                 <h3>{day}</h3>
                 <div >{tidesArray.map((tide, i) => {
                   return <p key={i}>{tide.type} Tide at {moment(this.localDateTimeMachine(tide.dt), 'h:mm a').format('h:mm a')}</p>
@@ -61,7 +61,7 @@ class Favorites extends React.Component {
             )
           })
           return (
-            <div className='location-results' key={index}>
+            <div className={this.props.theme === 'night' ? 'location-results-night' : 'location-results-day'} key={index}>
               <h2>{`${favObj.city}, ${favObj.state}`} <button className='remove-favorite' id={favObj._id} value={favObj._id} onClick={target => this.handleRemoveFavorite(target)}>X</button></h2>
               <h4>UPCOMING TIDES</h4>
               {tidesDisplay}
@@ -78,7 +78,7 @@ class Favorites extends React.Component {
         return (
           <div className="favorites-container">
               <Theme />
-              <div className='favorites-header'>
+              <div className={this.props.theme === 'night' ? 'favorites-header-night' : 'favorites-header-day'}>
                 <h2 className='favorites-title'>FAVORITE LOCATIONS</h2>
                 <FormFavorites /> 
               </div>
@@ -94,7 +94,8 @@ const mapStateToProps = state => {
   return {
     favoritesData: state.protected.data,
     isAuthenticated: state.auth.isAuthenticated,
-    loading: state.protected.loading
+    loading: state.protected.loading,
+    theme: state.favorite.theme
     };
 };
 

@@ -1,0 +1,4 @@
+.new-favorite-input, .new-favorite-label, .new-favorite-button{
+  display: block;
+  margin: 10px auto;
+}
