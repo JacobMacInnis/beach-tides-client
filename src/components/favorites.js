@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import FormFavorites from './form-favorites';
-import Theme from './theme';
+// import Theme from './theme';
 import { fetchProtectedData, unSetRedirect } from '../actions/protected-data';
 import { deleteFavorite, setOnFavorites, offFavoritesEndpoint, fetchTheme } from './../actions/favorite';
 import requiresLogin from './requires-login';
@@ -77,7 +77,7 @@ class Favorites extends React.Component {
         }
         return (
           <div className="favorites-container">
-              <Theme />
+              {/* <Theme /> */}
               <div className={this.props.theme === 'night' ? 'favorites-header-night' : 'favorites-header-day'}>
                 <h2 className='favorites-title'>FAVORITE LOCATIONS</h2>
                 <FormFavorites /> 

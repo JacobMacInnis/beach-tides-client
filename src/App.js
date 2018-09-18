@@ -7,6 +7,7 @@ import TideResults from './components/tide-results';
 import Favorites from './components/favorites';
 import Nav from './components/nav';
 import { fetchTheme } from './actions/favorite';
+import Theme from './components/theme';
 import './App.css';
 
 class App extends React.Component {
@@ -18,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={this.props.theme === 'night' ? 'App night' : 'App day'} >
-        {/* <img src='./img/Beach.png' className='day' /> */}
+        { this.props.isAuthenticated && <Theme /> }
         <Header />
         <Nav />
         <Route exact path="/" render={() => this.props.tideData === undefined || this.props.tideData.length < 1 ? <SearchForm />  : (<Redirect to='/results' />) }  />

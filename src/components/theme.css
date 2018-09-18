@@ -1,15 +1,18 @@
 .onoffswitch {
-  position: absolute; width: 100px;
-  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-  margin-top: -45px;
-  right: 5px;
+  position: absolute; 
+  width: 75px;
+  -webkit-user-select:none; 
+  -moz-user-select:none; 
+  -ms-user-select: none;
+  margin-top: -1%;
+  right: 0.5%;
 }
 .onoffswitch-checkbox {
   display: none;
 }
 .onoffswitch-label {
   display: block; overflow: hidden; cursor: pointer;
-  border: 2px solid #A8A8A8; border-radius: 6px;
+  border: 2px solid #A8A8A8; border-radius: 13px;
 }
 .onoffswitch-inner {
   display: block; width: 200%; margin-left: -100%;
@@ -17,26 +20,28 @@
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
   display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-  font-size: 18px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+  font-size: 15px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
   box-sizing: border-box;
 }
 .onoffswitch-inner:before {
   content: "DAY";
-  padding-left: -20px;
-  background-color: #3BD4FF; color: #2C365D;
+  padding-left: -5px;
+  background-color: #2C365D; 
+  color: #FFFFFF;
 }
 .onoffswitch-inner:after {
   content: "NIGHT";
-  padding-right: 10px;
-  background-color: #2C365D; color: #3BD4FF;
+  padding-right: 5px;
+  background-color: #3BD4FF; 
+  color: #2C365D;
   text-align: right;
 }
 .onoffswitch-switch {
-  display: block; width: 18px; margin: 6px;
+  display: block; width: 10px; margin: 10px;
   background: #FFFFFF;
   position: absolute; top: 0; bottom: 0;
-  right: 66px;
-  border: 2px solid #2C365D; border-radius: 6px;
+  right: 46px;
+  border: 2px solid #2C365D; border-radius: 13px;
   transition: all 0.3s ease-in 0s; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
