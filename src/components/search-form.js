@@ -16,7 +16,7 @@ class SearchForm extends React.Component {
   render() {
     return (
       <form className='search-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <h2>SEARCH TIDES</h2>
+        <h2 className='search-tides-title'>SEARCH TIDES</h2>
         <Field 
           component={Input}
           name='location'

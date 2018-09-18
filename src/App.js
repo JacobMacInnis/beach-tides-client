@@ -18,6 +18,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={this.props.theme === 'night' ? 'App night' : 'App day'} >
+        {/* <img src='./img/Beach.png' className='day' /> */}
         <Header />
         <Nav />
         <Route exact path="/" render={() => this.props.tideData === undefined || this.props.tideData.length < 1 ? <SearchForm />  : (<Redirect to='/results' />) }  />

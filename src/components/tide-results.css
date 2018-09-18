@@ -12,6 +12,13 @@
   -webkit-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
   -moz-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
   box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
+  background: rgba(219,219,219,1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 0%, rgba(209,209,209,0.44) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(219,219,219,1)), color-stop(0%, rgba(254,254,254,1)), color-stop(100%, rgba(209,209,209,0.44)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 0%, rgba(209,209,209,0.44) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 0%, rgba(209,209,209,0.44) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 0%, rgba(209,209,209,0.44) 100%);
+  background: radial-gradient(ellipse at center, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 0%, rgba(209,209,209,0.44) 100%);
 }
 .search-tide-results {
   border: 1px solid rgba(25,201,255,0.59);
@@ -20,6 +27,13 @@
   -webkit-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
   -moz-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
   box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
+  background: rgba(219,219,219,1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 0%, rgba(209,209,209,0.44) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(219,219,219,1)), color-stop(0%, rgba(254,254,254,1)), color-stop(100%, rgba(209,209,209,0.44)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 0%, rgba(209,209,209,0.44) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 0%, rgba(209,209,209,0.44) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 0%, rgba(209,209,209,0.44) 100%);
+  background: radial-gradient(ellipse at center, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 0%, rgba(209,209,209,0.44) 100%);
 }
 .city-state {
   margin: .4em 0 .1em 0;

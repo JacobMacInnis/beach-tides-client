@@ -4,11 +4,12 @@ import {connect} from 'react-redux';
 import Logout from './logout';
 import MyLocationsLink from './my-locations-link';
 import Login from './login';
+import './nav.css';
 
 class Nav extends Component {
   render() {
     return (
-      <nav>
+      <nav className='nav'>
         { !this.props.isAuthenticated && <Route component={Login}/> }
         { (!this.props.onFavorites) && this.props.isAuthenticated && <Route component={MyLocationsLink} /> }
         {  this.props.isAuthenticated && <Route component={Logout}/>}

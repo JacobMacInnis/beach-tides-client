@@ -6,12 +6,12 @@
   z-index: 1000;
   border-bottom: 3px solid rgba(7,19,69,1);
 }
-.day-header {
+/* .day-header {
   background-image:
     linear-gradient(
     rgba(253, 229, 122, 0.253), rgba(86, 250, 214, 0.253)
     );
-}
+} */
 .night-header {
   background-image:
     linear-gradient(

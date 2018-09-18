@@ -76,10 +76,12 @@ class Favorites extends React.Component {
           return <Redirect to="/" />;
         }
         return (
-          <div className="favorites">
+          <div className="favorites-container">
               <Theme />
-              <h2>FAVORITE LOCATIONS</h2>
-              <FormFavorites /> 
+              <div className='favorites-header'>
+                <h2 className='favorites-title'>FAVORITE LOCATIONS</h2>
+                <FormFavorites /> 
+              </div>
               <div className='favorite-results'>
                 {favoritesDisplay}
               </div>
