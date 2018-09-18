@@ -22,7 +22,11 @@ export const CHANGE_SEARCH_DATE = 'CHANGE_SEARCH_DATE';
 export const changeSearchDate = (searchDate) => ({
   type: CHANGE_SEARCH_DATE,
   searchDate
-})
+});
+export const CLEAR_TIDE_DATA = 'CLEAR_TIDE_DATA';
+export const clearTideData = () => ({
+  type: CLEAR_TIDE_DATA,
+});
 
 export const fetchLocation = (location, date) => dispatch => {
   dispatch(fetchLocationRequest());

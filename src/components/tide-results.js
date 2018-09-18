@@ -1,9 +1,10 @@
 import React from 'react';
 import './tide-results.css';
 import {connect} from 'react-redux';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter, Redirect, Link } from 'react-router-dom';
 import moment from 'moment';
 import SearchForm from './search-form'
+import { clearTideData } from './../actions/index';
 
 class TideResults extends React.Component {
   
@@ -11,6 +12,10 @@ class TideResults extends React.Component {
     const myDate = new Date( epoch * 1000 );
     return myDate.toLocaleString()
   }
+  handleClearTideData() {
+    this.props.dispatch(clearTideData());
+  }
+
   render() {
     let tidesDisplay;
     if (this.props.tideData !== undefined && this.props.tideData.length > 0 ) {
@@ -49,6 +54,7 @@ class TideResults extends React.Component {
         <div className='search-tide-results'className={this.props.theme === 'night' ? 'search-tide-results-night' : 'search-tide-results-day'}>
           <h1 className='city-state'>{`${this.props.city}, ${this.props.state}`}</h1>
           <h5>UPCOMING TIDES</h5>
+          <button className='remove-search-results' onClick={() => this.handleClearTideData()} >X</button>
           <div>
             {tidesDisplay}
           </div>

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { FETCH_LOCATION_REQUEST, FETCH_LOCATION_SUCCESS, FETCH_LOCATION_ERROR } from "../actions";
+import { FETCH_LOCATION_REQUEST, FETCH_LOCATION_SUCCESS, FETCH_LOCATION_ERROR, CLEAR_TIDE_DATA } from "../actions";
 
 const initialState = {
   date: moment().format('YYYY-MM-DD'),
@@ -32,6 +32,10 @@ export default function locationReducer(state = initialState, action) {
       tideData: [],
       error: action.error, 
       serverMessage: 'SORRY This location was either not found OR not close enough to a United States coast to get accurate Tide Predictions. Please try another location.' 
+    });
+  } else if (action.type === CLEAR_TIDE_DATA) {
+    return Object.assign({}, state, {
+      tideData: []
     });
   }
     return state;
