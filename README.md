@@ -1,1 +1,1 @@
-# (http://www.beachtides.us "Beach Tides")
+# [Beach Tides](http://www.beachtides.us)
