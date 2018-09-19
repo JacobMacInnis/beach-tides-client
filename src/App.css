@@ -2,8 +2,6 @@ html, body, #root {
   width:100%; 
   height:100%; 
   background:#2C365D;
-  /* background-image:url('./img/Beach.png');
-  background-size:cover; */
   font-family: sans-serif;
   box-sizing: border-box;
 }

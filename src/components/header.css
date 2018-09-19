@@ -6,12 +6,6 @@
   z-index: 1000;
   border-bottom: 3px solid rgba(7,19,69,1);
 }
-/* .day-header {
-  background-image:
-    linear-gradient(
-    rgba(253, 229, 122, 0.253), rgba(86, 250, 214, 0.253)
-    );
-} */
 .night-header {
   background-image:
     linear-gradient(
@@ -26,15 +20,4 @@
   display:inline-block;
   margin: 2% 5% 0 5%;
   padding-bottom: 5px;
-  /* margin: 5% 10% 0% 10%; */
-  /* position: fixed;
-  top: 2%;
-  background-color: white;
-  /* border: 1px solid rgba(7,19,69,1); */
-  /* border-radius: 2%;  */
 }
-/* hr {
-  height: 3px;
-  background: rgba(7,19,69,1);
-  margin-bottom: 0;
-} */

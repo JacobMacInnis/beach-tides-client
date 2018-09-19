@@ -37,9 +37,9 @@ class TideResults extends React.Component {
         day = this.localDateTimeMachine(tidesArray[0].dt).split(',')[0];
         day = moment(day,'MM DD YYYY').format('dddd, MMMM Do');
         return (
-          <div className={this.props.theme === 'night' ? 'tide-display-night' : 'tide-display-day'} key={index}>
+          <div className={this.props.theme === 'night' ? 'tide-display-night col-4' : 'tide-display-day col-4'} key={index}>
             <h3 className='tide-results-date'>{day}</h3>
-            <div >{tidesArray.map((tide, i) => {
+            <div>{tidesArray.map((tide, i) => {
               return <p key={i}><strong>{tide.type}</strong> Tide at {moment(this.localDateTimeMachine(tide.dt).split(',')[1], 'h:mm a').format('h:mm a')}</p>
             })
           }</div>
@@ -51,11 +51,11 @@ class TideResults extends React.Component {
     }
     return (
       <div className='tide-results-container'>
-        <div className='search-tide-results'className={this.props.theme === 'night' ? 'search-tide-results-night' : 'search-tide-results-day'}>
+        <div className={this.props.theme === 'night' ? 'search-tide-results-night' : 'search-tide-results-day'}>
           <h1 className='city-state'>{`${this.props.city}, ${this.props.state}`}</h1>
           <h5>UPCOMING TIDES</h5>
           <button className='remove-search-results' onClick={() => this.handleClearTideData()} >X</button>
-          <div>
+          <div className='row'>
             {tidesDisplay}
           </div>
         </div>
@@ -70,7 +70,7 @@ const mapStateToProps = state => {
     city: state.search.city,
     state: state.search.state,
     searchDate: state.search.searchDate,
-    theme: state.favorite.theme
+    theme: state.favorite.theme,
   }
 } 
 

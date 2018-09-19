@@ -1,3 +1,27 @@
+.row {
+  max-width: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 4% auto;
+}
+
+/* Clearfix */
+.row::before,
+.row::after {
+  display: table;
+  content: '';
+}
+
+.row::after {
+  clear: both;
+}
+
+.col-4 {
+  float: left;
+  /* padding-left: 1.04166666%;
+  padding-right: 1.04166666%; */
+  width: 100%;
+}
 .tide-results {
   list-style: none;
 }
@@ -6,9 +30,8 @@
   list-style: none;
 }
 .tide-display-day {
-  display: inline-block;
   border: 1px solid rgba(25,201,255,0.59);
-  margin: 7%;
+  margin: 3.5% 0 3.5% 0;
   border-radius: 2%;
   -webkit-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
   -moz-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
@@ -23,7 +46,7 @@
 }
 .tide-display-night {
   border: 1px solid rgba(25,201,255,0.59);
-  margin: 7%;
+  margin: 7% 0 3.5% 0;
   border-radius: 2%;
   -webkit-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
   -moz-box-shadow: -1px 0px 17px 1px rgba(7,19,69,1);
@@ -61,14 +84,14 @@
 h5 {
   margin: 0 0 0 0;
 }
-.remove-search-results {
+/* .remove-search-results {
   border: 1px solid grey;
   position: absolute;
   right: 8.5%;
   color: white;
   cursor: pointer;
   border-radius: 50%;
-  /* background-color: #f44242; */
+   background-color: #f44242; 
   background: radial-gradient(circle at 100px 100px, #ff8f8f, rgb(255, 10, 10));
   padding: .5em .65em;
   margin-top: -16%;
@@ -78,4 +101,42 @@ h5 {
   background-color: #f45942;
   color: white;
   font-size: .6em;
+} */
+.remove-search-results {
+  border: 1px solid grey;
+  position: absolute;
+  right: 8%;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  /* background-color: #f44242; */
+  background: radial-gradient(circle at 100px 100px, #ff8f8f, rgb(255, 10, 10));
+  padding: .5em .65em;
+  margin-top: -55px;
+  z-index: 1;
+}
+.remove-search-results:hover {
+  background-color: #f45942;
+  color: white;
+  font-size: .6em;
+}
+
+@media only screen and (min-width: 640px) {
+  .row {
+    padding-right: 0px;
+  }
+  .col-4 {
+    width: 30%;
+    margin: 1%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .remove-search-results {
+    font-size: 6px;
+    right: 6%;
+    margin-top: -60px;
+  }
+  .row {
+    margin: 2% auto;
+  }
 }

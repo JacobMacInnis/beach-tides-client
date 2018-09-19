@@ -51,7 +51,7 @@ class Favorites extends React.Component {
             day = this.localDateTimeMachine(tidesArray[0].dt).split(',')[0];
             day = moment(day, 'MM DD YYYY').format('dddd, MMMM Do');
             return (
-              <div className={this.props.theme === 'night' ? 'tide-display-night' : 'tide-display-day'} key={index}>
+              <div className={this.props.theme === 'night' ? 'tide-display-night col-4' : 'tide-display-day col-4'} key={index}>
                 <h3>{day}</h3>
                 <div >{tidesArray.map((tide, i) => {
                   return <p key={i}>{tide.type} Tide at {moment(this.localDateTimeMachine(tide.dt), 'h:mm a').format('h:mm a')}</p>
@@ -64,7 +64,9 @@ class Favorites extends React.Component {
             <div className={this.props.theme === 'night' ? 'location-results-night' : 'location-results-day'} key={index}>
               <h2>{`${favObj.city}, ${favObj.state}`} <button className='remove-favorite' id={favObj._id} value={favObj._id} onClick={target => this.handleRemoveFavorite(target)}>X</button></h2>
               <h4>UPCOMING TIDES</h4>
-              {tidesDisplay}
+              <div className='row'>
+                {tidesDisplay}
+              </div>
             </div>
           )
         })
