@@ -1,7 +1,7 @@
 import React from 'react';
 import './tide-results.css';
 import {connect} from 'react-redux';
-import { withRouter, Redirect, Link } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import moment from 'moment';
 import SearchForm from './search-form'
 import { clearTideData } from './../actions/index';

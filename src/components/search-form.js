@@ -14,14 +14,14 @@ class SearchForm extends React.Component {
     fetchLocation(location, date))
   };
   render() {
-    let error;
-        if (this.props.error) {
-            error = <div className="search-error">{this.props.error.message}HI</div>;
+    let searchError;
+        if (this.props.searchError) {
+          searchError = <div className="search-error">{this.props.searchError.message}</div>;
         }
     return (
       <form className={this.props.theme === 'night' ? 'search-form-night' : 'search-form-day'} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        {error}
         <h2 className={this.props.theme === 'night' ? 'search-tides-title-night' : 'search-tides-title-day'}>SEARCH TIDES</h2>
+        {searchError}
         <Field 
           component={Input}
           name='location'
@@ -45,7 +45,7 @@ const mapStateToProps = state => {
   initialValues: { date: state.search.date },
   tideData: state.search.tideData,
   theme: state.favorite.theme,
-  error: state.search.error
+  searchError: state.search.error
   }
 }
 
