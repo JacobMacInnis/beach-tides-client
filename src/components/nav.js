@@ -21,6 +21,6 @@ const mapStateToProps = state => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
     onFavorites: state.favorite.onFavorites
-  }
-}
+  };
+};
 export default connect(mapStateToProps)(Nav);
