@@ -1,9 +1,12 @@
+* {
+  box-sizing: border-box;
+}
 html, body, #root {
   width:100%; 
   height:100%; 
   background:#2C365D;
   font-family: sans-serif;
-  box-sizing: border-box;
+  margin: 0;
 }
 .App {
   text-align: center;
@@ -23,8 +26,6 @@ html, body, #root {
   background-size:cover;
   background-attachment: fixed;
 }
-
-
 .App-logo {
   animation: App-logo-spin infinite 2s linear;
   height: 20%;

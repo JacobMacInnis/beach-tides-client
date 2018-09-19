@@ -84,24 +84,6 @@
 h5 {
   margin: 0 0 0 0;
 }
-/* .remove-search-results {
-  border: 1px solid grey;
-  position: absolute;
-  right: 8.5%;
-  color: white;
-  cursor: pointer;
-  border-radius: 50%;
-   background-color: #f44242; 
-  background: radial-gradient(circle at 100px 100px, #ff8f8f, rgb(255, 10, 10));
-  padding: .5em .65em;
-  margin-top: -16%;
-  z-index: 1;
-}
-.remove-search-results:hover {
-  background-color: #f45942;
-  color: white;
-  font-size: .6em;
-} */
 .remove-search-results {
   border: 1px solid grey;
   position: absolute;
