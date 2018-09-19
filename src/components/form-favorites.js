@@ -15,9 +15,14 @@ class FormFavorites extends React.Component {
     })
   }
   render() {
+    let inputError;
+    if (this.props.inputError) {
+      inputError = <div className="search-error">{this.props.inputError.message}</div>;
+    }
       return (
         <form className='new-favorite-form' >
           <label htmlFor='new-favorite-input' className='new-favorite-label'>ENTER ZIPCODE or CITY FOLLOWED BY COMMA AND TWO LETTER STATE CODE</label>
+          {inputError}
           <input name='new-favorite-input' className='new-favorite-input' type='text' ref={input => this.newFavorite = input} placeholder='ZIPCODE OR CITY AND STATE'></input>
           <button type='submit' onClick={this.handleSubmitClick} className='new-favorite-button' >SUBMIT</button>
         </form>
@@ -25,4 +30,10 @@ class FormFavorites extends React.Component {
   }
 }
 
-export default connect()(FormFavorites);
+const mapStateToProps = state => {
+  return {
+    inputError: state.favorite.error
+  }
+} 
+
+export default connect(mapStateToProps)(FormFavorites);

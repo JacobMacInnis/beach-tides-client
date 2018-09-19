@@ -24,12 +24,13 @@ export default function favoriteReducer(state=initialState, action) {
   } else if (action.type === NEW_LOCATION_SUCCESS) {
     return Object.assign({}, state, {
       loading: false,
-      serverMessage: 'You have sucessfully added a new favorite!'
+      serverMessage: 'You have sucessfully added a new favorite!',
+      error: null
     });
   } else if (action.type === NEW_LOCATION_ERROR) {
     return Object.assign({}, state, {
       loading: false,
-      error: action.error,
+      error: action.err,
       serverMessage: 'SORRY This location was either not found OR not close enough to a United States coast to get accurate Tide Predictions. Please try another location.' 
     });
   } else if (action.type === REMOVE_LOCATION_REQUEST) {

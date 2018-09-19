@@ -88,7 +88,12 @@ export const addNewLocation = newFavorite => dispatch => {
     },
     body: JSON.stringify({newFavorite})
   })
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) {
+      return res.json().then(data => Promise.reject(data))
+    }
+    return res.json();
+  })
   .then(({data}) => dispatch(newLocationSuccess(data)))
   .catch(err => {
     dispatch(newLocationError(err));

@@ -12,19 +12,15 @@ class Logout extends Component {
   };
   render() {
     return (
-      
-        <button className='logout' onClick={() => this.logout()}>LOG OUT</button>
-      
-    )
-  }
-}
+      <button className='logout' onClick={() => this.logout()}>LOG OUT</button>
+    );
+  };
+};
 const mapStateToProps = state => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
     user: state.auth.user,
     onFavorites: state.favorite.onFavorites
-  }
-}
-
-
+  };
+};
 export default connect(mapStateToProps)(Logout);

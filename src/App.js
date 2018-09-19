@@ -8,6 +8,7 @@ import Favorites from './components/favorites';
 import Nav from './components/nav';
 import { fetchTheme } from './actions/favorite';
 import Theme from './components/theme';
+import BeachTidesLogo from './img/BeachTidesLogo.png';
 import './App.css';
 
 class App extends React.Component {
@@ -17,11 +18,16 @@ class App extends React.Component {
     }
   }
   render() {
+    let loading;
+    if (this.props.searchLoading || this.props.protectedLoading || this.props.favoritesLoading) {
+      loading = true;
+    }
     return (
       <div className={this.props.theme === 'night' ? 'App night' : 'App day'} >
         { this.props.isAuthenticated && <Theme /> }
         <Header />
         <Nav />
+        { loading === true && <img src={BeachTidesLogo} className="App-logo" alt="logo" /> }
         <Route exact path="/" render={() => this.props.tideData === undefined || this.props.tideData.length < 1 ? <SearchForm />  : (<Redirect to='/results' />) }  />
         <Route exact path='/results' component={TideResults} />
         <Route exact path="/favorites"  component={Favorites} />
@@ -35,7 +41,10 @@ const mapStateToProps = state => {
     tideData: state.search.tideData,
     theme: state.favorite.theme,
     isAuthenticated: state.auth.isAuthenticated,
-    renderRedirect: state.protected.renderRedirect
+    renderRedirect: state.protected.renderRedirect,
+    searchLoading: state.search.loading,
+    protectedLoading: state.protected.loading,
+    favoritesLoading: state.favorite.loading
   }
 }
 
