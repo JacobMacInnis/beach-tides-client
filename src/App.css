@@ -4,6 +4,7 @@ html, body, #root {
     background:#2C365D;
     /* background-image:url('./img/Beach.png');
     background-size:cover; */
+    font-family: sans-serif;
 }
 .App {
   text-align: center;

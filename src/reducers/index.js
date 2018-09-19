@@ -30,7 +30,7 @@ export default function locationReducer(state = initialState, action) {
     return Object.assign({}, state, {
       loading: false,
       tideData: [],
-      error: action.error, 
+      error: action.err, 
       serverMessage: 'SORRY This location was either not found OR not close enough to a United States coast to get accurate Tide Predictions. Please try another location.' 
     });
   } else if (action.type === CLEAR_TIDE_DATA) {
