@@ -6,6 +6,7 @@
   list-style: none;
 }
 .tide-display-day {
+  display: inline-block;
   border: 1px solid rgba(25,201,255,0.59);
   margin: 7%;
   border-radius: 2%;

@@ -33,7 +33,7 @@ export const fetchLocation = (location, date) => dispatch => {
   return fetch(`${API_BASE_URL}/location?location=${location}&date=${date}`)
   .then(res => {
       if (!res.ok) {
-        throw res;
+        return res.json().then(data => Promise.reject(data))
       }
       return res.json();
   })
