@@ -48,7 +48,7 @@ class Login extends Component {
             onFailure={this.googleResponse}
             className='my-google-button-class'
           />
-          <span className='google-login-label'>&nbsp;To Save Favorite Locations!</span>
+          <span className='google-login-label'>To Save Locations! and More!</span>
         </div>
       );
   }

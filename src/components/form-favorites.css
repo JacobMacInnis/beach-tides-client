@@ -3,43 +3,27 @@
   margin: 10px auto;
 }
 
-/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+/* If the screen size is less than 325px wide */
 @media  only screen and (max-device-width : 324px) {
   .favorites-title {
     font-size: 20px;
   }
 }
+/* If the screen size is greater than 325 and less than 479px wide */
 @media  only screen and (min-device-width : 325px) and (max-device-width : 479px) {
   .favorites-title {
     font-size: 25px;
   }
 }
+/* If the screen size is greater than 480px and less than 600px wide */
 @media  only screen and (min-device-width : 480px) and (max-device-width : 599px) {
   .favorites-title {
     font-size: 35px;
   }
 }
+/* If the screen size is greater than 599px wide */
 @media  only screen and (min-device-width : 600px) {
   .favorites-title {
     font-size: 40px;
   }
 }
-
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px
-@media all and (max-width: 399px) {
-  .favorites-title {
-    font-size: 25px;
-  }
-} */
-/* @media all and (max-width: 333px) {
-  .favorites-title {
-    font-size: 20px;
-  }
-} */
-
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-/* @media all and (min-width: 400) and (max-width: 600px) {
-  .favorites-title {
-    font-size: 10px;
-  }
-} */

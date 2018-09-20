@@ -101,6 +101,7 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Favorites));
+// export default requiresLogin()(connect(mapStateToProps)(Favorites));
+export default connect(mapStateToProps)(Favorites);
 
 
