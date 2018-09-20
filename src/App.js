@@ -6,7 +6,7 @@ import SearchForm from './components/search-form';
 import TideResults from './components/tide-results';
 import Favorites from './components/favorites';
 import Nav from './components/nav';
-import { fetchTheme } from './actions/favorite';
+import { fetchTheme } from './actions/theme';
 import Theme from './components/theme';
 import BeachTidesLogo from './img/BeachTidesLogo.png';
 import './App.css';
@@ -19,7 +19,7 @@ class App extends React.Component {
   }
   render() {
     let loading;
-    if (this.props.searchLoading || this.props.protectedLoading || this.props.favoritesLoading) {
+    if ( this.props.searchLoading || this.props.protectedLoading || this.props.favoritesLoading || this.props.themeLoading ) {
       loading = true;
     }
     return (
@@ -39,12 +39,13 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return { 
     tideData: state.search.tideData,
-    theme: state.favorite.theme,
+    theme: state.theme.theme,
     isAuthenticated: state.auth.isAuthenticated,
     renderRedirect: state.protected.renderRedirect,
     searchLoading: state.search.loading,
     protectedLoading: state.protected.loading,
-    favoritesLoading: state.favorite.loading
+    favoritesLoading: state.favorite.loading,
+    themeLoading: state.theme.loading
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './theme.css';
-import {connect} from 'react-redux';
-import { changeTheme } from './../actions/favorite';
+import { connect } from 'react-redux';
+import { changeTheme } from './../actions/theme';
 
 class Theme extends React.Component {
   handleThemeToggle = () => {
@@ -24,7 +24,7 @@ class Theme extends React.Component {
 }
 const mapStateToProps = state => {
   return { 
-    theme: state.favorite.theme
+    theme: state.theme.theme
   }
 }
 

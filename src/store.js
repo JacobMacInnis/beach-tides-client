@@ -1,11 +1,14 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux'
 import {reducer as formReducer} from 'redux-form'
+import thunk from 'redux-thunk';
+import { composeWithDevTools} from 'redux-devtools-extension';
+
+// Import reducers
 import locationReducer from './reducers/index';
 import authReducer from './reducers/auth';
 import protectedReducer from './reducers/protected';
-import thunk from 'redux-thunk';
-import { composeWithDevTools} from 'redux-devtools-extension';
 import favoriteReducer from './reducers/favorite';
+import themeReducer from './reducers/theme';
 
 export default createStore(
     combineReducers({
@@ -13,7 +16,8 @@ export default createStore(
         search: locationReducer,
         auth: authReducer,
         protected: protectedReducer,
-        favorite: favoriteReducer
+        favorite: favoriteReducer,
+        theme: themeReducer
     }),
     composeWithDevTools(applyMiddleware(thunk))
 );

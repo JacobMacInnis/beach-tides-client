@@ -38,4 +38,4 @@ import { reduxForm } from 'redux-form';
   }
 }
 
-export default reduxForm({form: 'search'})(Input);
+export default reduxForm({ form: 'search' })(Input);

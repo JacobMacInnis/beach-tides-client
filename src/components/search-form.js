@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from './search-form-input';
 import { reduxForm, Field } from 'redux-form';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { fetchLocation } from './../actions/index';
 import './search-form.css';
 
@@ -44,7 +44,7 @@ const mapStateToProps = state => {
   return {
   initialValues: { date: state.search.date },
   tideData: state.search.tideData,
-  theme: state.favorite.theme,
+  theme: state.theme.theme,
   searchError: state.search.error
   }
 }

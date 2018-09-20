@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { logout } from './../actions/auth';
 import { clearAuthToken} from '../local-storage';
-import { setThemeOnLogout } from './../actions/favorite';
-import {connect} from 'react-redux';
+import { setThemeOnLogout } from './../actions/theme';
+import { connect } from 'react-redux';
 
 class Logout extends Component {
   logout = () => {

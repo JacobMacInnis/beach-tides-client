@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './login.css';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { GoogleLogin } from 'react-google-login';
 import { GOOGLE_CLIENT_ID, API_V1_AUTH_GOOGLE} from './../config';
 import { Redirect } from 'react-router-dom';
 import { authRequest, authSuccess, authError } from './../actions/auth';
-// import { setRedirect } from './../actions/protected-data'
-import {saveAuthToken } from '../local-storage';
+import { saveAuthToken } from '../local-storage';
 
 class Login extends Component {
   renderRedirect = () => {

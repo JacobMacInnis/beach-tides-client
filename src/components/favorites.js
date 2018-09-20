@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import FormFavorites from './form-favorites';
 import { fetchProtectedData, unSetRedirect } from '../actions/protected-data';
-import { deleteFavorite, setOnFavorites, offFavoritesEndpoint, fetchTheme } from './../actions/favorite';
+import { deleteFavorite, setOnFavorites, offFavoritesEndpoint } from './../actions/favorite';
+import { fetchTheme } from './../actions/theme';
 import './favorites.css';
 import moment from 'moment';
 
@@ -95,7 +96,7 @@ const mapStateToProps = state => {
     favoritesData: state.protected.data,
     isAuthenticated: state.auth.isAuthenticated,
     loading: state.protected.loading,
-    theme: state.favorite.theme
+    theme: state.theme.theme
     };
 };
 

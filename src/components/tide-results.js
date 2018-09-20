@@ -1,10 +1,11 @@
 import React from 'react';
 import './tide-results.css';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
-import moment from 'moment';
 import SearchForm from './search-form'
 import { clearTideData } from './../actions/index';
+// npm moment package
+import moment from 'moment';
 
 class TideResults extends React.Component {
   
@@ -70,7 +71,7 @@ const mapStateToProps = state => {
     city: state.search.city,
     state: state.search.state,
     searchDate: state.search.searchDate,
-    theme: state.favorite.theme,
+    theme: state.theme.theme,
   }
 } 
 

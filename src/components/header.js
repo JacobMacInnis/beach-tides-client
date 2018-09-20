@@ -15,7 +15,7 @@ class Header extends React.Component {
 
 const mapStateToProps = state => {
   return { 
-    theme: state.favorite.theme
+    theme: state.theme.theme
   }
 }
 
