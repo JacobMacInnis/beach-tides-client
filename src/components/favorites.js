@@ -2,10 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import FormFavorites from './form-favorites';
-// import Theme from './theme';
 import { fetchProtectedData, unSetRedirect } from '../actions/protected-data';
 import { deleteFavorite, setOnFavorites, offFavoritesEndpoint, fetchTheme } from './../actions/favorite';
-import requiresLogin from './requires-login';
 import './favorites.css';
 import moment from 'moment';
 
