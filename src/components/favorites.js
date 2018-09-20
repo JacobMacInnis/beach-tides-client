@@ -6,6 +6,7 @@ import { fetchProtectedData, unSetRedirect } from '../actions/protected-data';
 import { deleteFavorite, setOnFavorites, offFavoritesEndpoint } from './../actions/favorite';
 import { fetchTheme } from './../actions/theme';
 import './favorites.css';
+import { tidesDisplay } from './../custom-functions';
 import moment from 'moment';
 
 export class Favorites extends React.Component {
@@ -46,11 +47,12 @@ export class Favorites extends React.Component {
             groupedTides[groupedTides.length - 1].push(tide);
           } 
           const tidesDisplay = groupedTides.map((tidesArray, index) => {
+            let daysCount = groupedTides.length + 1;
             let day;
             day = this.localDateTimeMachine(tidesArray[0].dt).split(',')[0];
             day = moment(day, 'MM DD YYYY').format('dddd, MMMM Do');
             return (
-              <div className={this.props.theme === 'night' ? 'tide-display-night col-4' : 'tide-display-day col-4'} key={index}>
+              <div className={this.props.theme === 'night' ? `tide-display-night col-4${daysCount}` : `tide-display-day col-${daysCount}`} key={index}>
                 <h3>{day}</h3>
                 <div >{tidesArray.map((tide, i) => {
                   return <p key={i}>{tide.type} Tide at {moment(this.localDateTimeMachine(tide.dt), 'h:mm a').format('h:mm a')}</p>

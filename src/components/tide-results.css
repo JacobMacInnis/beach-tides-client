@@ -11,15 +11,19 @@
   display: table;
   content: '';
 }
-
 .row::after {
   clear: both;
 }
-
+/* If days returned equals 3 */
 .col-4 {
   float: left;
   /* padding-left: 1.04166666%;
   padding-right: 1.04166666%; */
+  width: 100%;
+}
+/* If days returned equals 2 */
+.col-3 {
+  float: left;
   width: 100%;
 }
 .tide-results {
@@ -109,6 +113,10 @@ h5 {
   }
   .col-4 {
     width: 30%;
+    margin: 1%;
+  }
+  .col-3 {
+    width: 47%;
     margin: 1%;
   }
 }
