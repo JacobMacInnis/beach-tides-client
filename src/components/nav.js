@@ -6,7 +6,7 @@ import MyLocationsLink from './my-locations-link';
 import Login from './login';
 import './nav.css';
 
-class Nav extends Component {
+export class Nav extends Component {
   render() {
     return (
       <nav className='nav'>

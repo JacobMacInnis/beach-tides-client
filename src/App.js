@@ -11,7 +11,7 @@ import { fetchTheme } from './actions/theme';
 import BeachTidesLogo from './img/BeachTidesLogo.png';
 import './App.css';
 
-class App extends React.Component {
+export class App extends React.Component {
   componentDidMount() {
     if(this.props.isAuthenticated) {
       this.props.dispatch(fetchTheme());

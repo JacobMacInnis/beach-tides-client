@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import { authRequest, authSuccess, authError } from './../actions/auth';
 import { saveAuthToken } from '../local-storage';
 
-class Login extends Component {
+export class Login extends Component {
   renderRedirect = () => {
     console.log('tried');
       return <Redirect to='/favorites' />

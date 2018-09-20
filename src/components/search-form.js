@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { fetchLocation } from './../actions/index';
 import './search-form.css';
 
-class SearchForm extends React.Component {
+export class SearchForm extends React.Component {
   onSubmit(values) {
     console.log(values);
     const location = values.location || '';

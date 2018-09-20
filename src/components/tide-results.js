@@ -7,7 +7,7 @@ import { clearTideData } from './../actions/index';
 // npm moment package
 import moment from 'moment';
 
-class TideResults extends React.Component {
+export class TideResults extends React.Component {
   
   localDateTimeMachine(epoch) {
     const myDate = new Date( epoch * 1000 );

@@ -4,7 +4,7 @@ import { clearAuthToken} from '../local-storage';
 import { setThemeOnLogout } from './../actions/theme';
 import { connect } from 'react-redux';
 
-class Logout extends Component {
+export class Logout extends Component {
   logout = () => {
     this.props.dispatch(logout());
     clearAuthToken();

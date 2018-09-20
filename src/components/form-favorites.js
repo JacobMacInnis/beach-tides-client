@@ -5,7 +5,7 @@ import { addNewLocation } from './../actions/favorite';
 import { fetchProtectedData } from './../actions/protected-data';
 import './form-favorites.css';
 
-class FormFavorites extends React.Component {
+export class FormFavorites extends React.Component {
   handleSubmitClick = (e) => {
     const newFavorite = this.newFavorite.value;
     e.preventDefault();

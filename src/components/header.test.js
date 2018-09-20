@@ -1,9 +1,9 @@
-// import React from 'react';
-// import { shallow } from 'enzyme';
-// import Header from './favorites';
+import React from 'react';
+import { shallow } from 'enzyme';
+import { Header } from './header';
 
-// describe.only('<Header />', () => {
-//   it('Should render without crashing', () => {
-//     shallow(<Header favoritesData={[]} isAuthenticated={true} loading={false} theme={'night'} />);
-//   });
-// }); 
+describe('<Header />', () => {
+  it('Should render without crashing', () => {
+    shallow(<Header />);
+  });
+}); 

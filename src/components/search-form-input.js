@@ -2,8 +2,7 @@ import React from 'react';
 import './search-form-input.css';
 import { reduxForm } from 'redux-form';
 
-
- class Input extends React.Component  {
+ export class Input extends React.Component  {
 
   render() {
     const Element = this.props.element || 'input';

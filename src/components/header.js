@@ -2,7 +2,7 @@ import React from 'react';
 import './header.css';
 import { connect } from 'react-redux';
 
-class Header extends React.Component {
+export class Header extends React.Component {
   render() {
     return (
         <header className={`header ${this.props.theme === 'night' ? 'night-header' : 'day-header'}`}>

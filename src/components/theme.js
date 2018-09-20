@@ -3,7 +3,7 @@ import './theme.css';
 import { connect } from 'react-redux';
 import { changeTheme } from './../actions/theme';
 
-class Theme extends React.Component {
+export class Theme extends React.Component {
   handleThemeToggle = () => {
     this.props.dispatch(changeTheme());
   }

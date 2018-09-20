@@ -1,6 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import FormFavorites from './form-favorites';
 import { fetchProtectedData, unSetRedirect } from '../actions/protected-data';
 import { deleteFavorite, setOnFavorites, offFavoritesEndpoint } from './../actions/favorite';
@@ -8,12 +8,12 @@ import { fetchTheme } from './../actions/theme';
 import './favorites.css';
 import moment from 'moment';
 
-class Favorites extends React.Component {
+export class Favorites extends React.Component {
     componentDidMount() {
       this.props.dispatch(setOnFavorites());
       this.props.dispatch(fetchTheme());
       this.props.dispatch(fetchProtectedData());
-      this.props.dispatch(unSetRedirect())
+      this.props.dispatch(unSetRedirect());
     }
     componentWillUnmount() {
       this.props.dispatch(offFavoritesEndpoint());
@@ -26,7 +26,7 @@ class Favorites extends React.Component {
     }
     localDateTimeMachine(epoch) {
       const myDate = new Date( epoch * 1000 );
-      return myDate.toLocaleString()
+      return myDate.toLocaleString();
     }
     render() {
       let favoritesData = this.props.favoritesData;
@@ -70,7 +70,7 @@ class Favorites extends React.Component {
           )
         })
       } else if (this.props.loading) {
-        favoritesDisplay = <h2>Loading Your Favorite Tide Predictions</h2>
+        favoritesDisplay = <h2>Loading Your Favorite Tide Predictions</h2>;
       } else {
         favoritesDisplay = <h2>YOU CURRENTLY DO NOT HAVE ANY FAVORITE LOCATIONS SAVED</h2>
       } if (this.props.isAuthenticated === false) {

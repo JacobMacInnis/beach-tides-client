@@ -4,7 +4,7 @@ import MyLocationsLink from './my-locations-link';
 import { MemoryRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
-describe.only('<MyLocationsLink />', () => {
+describe('<MyLocationsLink />', () => {
   it('Should render without crashing', () => {
     shallow(<MyLocationsLink />);
   });
