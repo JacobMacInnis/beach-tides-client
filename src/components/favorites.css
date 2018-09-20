@@ -56,10 +56,9 @@
   color: white;
   cursor: pointer;
   border-radius: 50%;
-  /* background-color: #f44242; */
   background: radial-gradient(circle at 100px 100px, #ff8f8f, rgb(255, 10, 10));
   padding: .5em .65em;
-  margin-top: -10px;
+  margin-top: -55px;
   z-index: 1;
 }
 .remove-favorite:hover {

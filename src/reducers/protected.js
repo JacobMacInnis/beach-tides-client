@@ -2,15 +2,12 @@ import {
   FETCH_PROTECTED_DATA_REQUEST,
   FETCH_PROTECTED_DATA_SUCCESS,
   FETCH_PROTECTED_DATA_ERROR,
-  SET_REDIRECT,
-  UN_SET_REDIRECT
 } from '../actions/protected-data';
 
 const initialState = {
   loading: false,
   data: [],
-  error: null,
-  renderRedirect: false
+  error: null
 };
 
 export default function protectedReducer(state = initialState, action) {
@@ -32,14 +29,6 @@ export default function protectedReducer(state = initialState, action) {
       loading: false,
       error: action.error
     });
-  } else if (action.type === SET_REDIRECT) {
-    return Object.assign({}, state, {
-      renderRedirect: true
-    });
-  } else if (action.type === UN_SET_REDIRECT) {
-    return Object.assign({}, state, {
-      renderRedirect: false
-    })
-  }
+  } 
   return state;
 }

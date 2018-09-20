@@ -21,6 +21,7 @@ export class Login extends Component {
       mode: 'cors',
       cache: 'default'
     };
+    console.log(response.accessToken, 'TOKEN')
     fetch(API_V1_AUTH_GOOGLE, options)
     .then(response => {
       const token = response.headers.get('x-auth-token');
@@ -52,7 +53,6 @@ export class Login extends Component {
       );
   }
 }
-
 const mapStateToProps = state => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
@@ -60,6 +60,4 @@ const mapStateToProps = state => {
     onFavorites: state.favorite.onFavorites
   }
 }
-
-
 export default connect(mapStateToProps)(Login);

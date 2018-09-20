@@ -5,7 +5,7 @@ export const fetchLocationRequest = () => ({
   type: FETCH_LOCATION_REQUEST
 });
 export const FETCH_LOCATION_SUCCESS = 'FETCH_LOCATION_SUCCESS';
-export const fetchLocationSuccess = (location) => ({
+export const fetchLocationSuccess = location => ({
   type: FETCH_LOCATION_SUCCESS,
   tideData: location.extremes,
   city: location.city,
@@ -19,7 +19,7 @@ export const fetchLocationError = err => ({
 });
 
 export const CHANGE_SEARCH_DATE = 'CHANGE_SEARCH_DATE';
-export const changeSearchDate = (searchDate) => ({
+export const changeSearchDate = searchDate => ({
   type: CHANGE_SEARCH_DATE,
   searchDate
 });

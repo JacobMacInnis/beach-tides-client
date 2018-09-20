@@ -2,11 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import FormFavorites from './form-favorites';
-import { fetchProtectedData, unSetRedirect } from '../actions/protected-data';
+import { fetchProtectedData } from '../actions/protected-data';
 import { deleteFavorite, setOnFavorites, offFavoritesEndpoint } from './../actions/favorite';
 import { fetchTheme } from './../actions/theme';
 import './favorites.css';
-import { tidesDisplay } from './../custom-functions';
 import moment from 'moment';
 
 export class Favorites extends React.Component {
@@ -14,7 +13,6 @@ export class Favorites extends React.Component {
       this.props.dispatch(setOnFavorites());
       this.props.dispatch(fetchTheme());
       this.props.dispatch(fetchProtectedData());
-      this.props.dispatch(unSetRedirect());
     }
     componentWillUnmount() {
       this.props.dispatch(offFavoritesEndpoint());
@@ -63,7 +61,7 @@ export class Favorites extends React.Component {
           })
           return (
             <div className={this.props.theme === 'night' ? 'location-results-night' : 'location-results-day'} key={index}>
-              <h2>{`${favObj.city}, ${favObj.state}`} <button className='remove-favorite' id={favObj._id} value={favObj._id} onClick={target => this.handleRemoveFavorite(target)}>X</button></h2>
+              <h2>{`${favObj.city}, ${favObj.state}`} </h2><button className='remove-favorite' id={favObj._id} value={favObj._id} onClick={target => this.handleRemoveFavorite(target)}>X</button>
               <h4>UPCOMING TIDES</h4>
               <div className='row'>
                 {tidesDisplay}

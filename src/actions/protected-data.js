@@ -19,16 +19,6 @@ export const fetchProtectedDataError = error => ({
     error
 });
 
-export const SET_REDIRECT = 'SET_REDIRECT';
-export const setRedirect = () => ({
-    type: SET_REDIRECT
-})
-export const UN_SET_REDIRECT = 'UN_SET_REDIRECT';
-export const unSetRedirect = () => ({
-    type: UN_SET_REDIRECT
-})
-
-
 export const fetchProtectedData = () => (dispatch) => {
     dispatch(fetchProtectedDataRequest());
     const authToken = loadAuthToken();

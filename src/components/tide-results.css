@@ -123,7 +123,7 @@ h5 {
 @media only screen and (max-width: 400px) {
   .remove-search-results {
     font-size: 6px;
-    right: 6%;
+    right: 8%;
     margin-top: -60px;
   }
   .row {
