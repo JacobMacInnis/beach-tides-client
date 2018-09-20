@@ -6,8 +6,8 @@ import SearchForm from './components/search-form';
 import TideResults from './components/tide-results';
 import Favorites from './components/favorites';
 import Nav from './components/nav';
-import { fetchTheme } from './actions/theme';
 import Theme from './components/theme';
+import { fetchTheme } from './actions/theme';
 import BeachTidesLogo from './img/BeachTidesLogo.png';
 import './App.css';
 
