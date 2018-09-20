@@ -42,6 +42,7 @@ const mapStateToProps = state => {
     theme: state.theme.theme,
     isAuthenticated: state.auth.isAuthenticated,
     renderRedirect: state.protected.renderRedirect,
+    authLoading: state.auth.loading,
     searchLoading: state.search.loading,
     protectedLoading: state.protected.loading,
     favoritesLoading: state.favorite.loading,
