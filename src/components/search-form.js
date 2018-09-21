@@ -7,7 +7,6 @@ import './search-form.css';
 
 export class SearchForm extends React.Component {
   onSubmit(values) {
-    console.log(values);
     const location = values.location || '';
     const date = values.date;
     return this.props.dispatch(

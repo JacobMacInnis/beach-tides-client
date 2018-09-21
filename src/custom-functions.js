@@ -7,7 +7,7 @@ export const localDateTimeMachine = (epoch) => {
 }
 // This function takes tideData which is an array of usually 7 objects. Each includes properties - dt(epoch time), type('High'/'Low') and height
 export const tidesDisplay = (tideData, theme)=> {
-      let tidesDisplay;
+      
       let currentDate = null;
       const groupedTides = [];
       for (let i = 0; i < tideData.length; i++) {
@@ -23,7 +23,7 @@ export const tidesDisplay = (tideData, theme)=> {
         }
         groupedTides[groupedTides.length - 1].push(tide);
       } 
-      return tidesDisplay = groupedTides.map((tidesArray, index) => {
+      return groupedTides.map((tidesArray, index) => {
         let daysCount = groupedTides.length + 1;
         let day;
         day = localDateTimeMachine(tidesArray[0].dt).split(',')[0];
