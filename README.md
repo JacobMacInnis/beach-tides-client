@@ -4,11 +4,11 @@
 
 This App uses the following MERN stack:
 
-React for the frontend
-
-Redux for state management
-
-Node and Express for the backend
+HTML5
+CSS3
+React
+Redux
+Node.js and Express for the backend
 
 MongoDB for the database
 
