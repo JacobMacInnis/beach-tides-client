@@ -39,7 +39,7 @@ html, body, #root {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-.water-move { 
+/* .water-move { 
   position: absolute;
   animation: water-move infinite 2s linear;
 }
@@ -77,4 +77,4 @@ html, body, #root {
   100% {
     transform: translate(100vw, 175px)
   } 
-} 
+}  */
