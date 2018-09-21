@@ -1,6 +1,11 @@
 ![Beach Tides](https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/BeachTides.png?raw=true "Beach Tides Logo")
 # (www.beachtides.us)
 
+## Screenshots 📸
+| <img alt="Landing Page" src="https://github.com/bvellek/aeropress-me-app/blob/master/public/img/design/screen-desk-landing.jpg?raw=true" width="350"> | <img alt="Login Page" src="https://github.com/bvellek/aeropress-me-app/blob/master/public/img/design/screen-desk-login.jpg?raw=true" width="350"> | <img alt="Registration Page" src="https://github.com/bvellek/aeropress-me-app/blob/master/public/img/design/screen-desk-registration.jpg?raw=true" width="350"> |
+|:---:|:---:|:---:|
+| Landing Page | Login Page | Registration Page |
+
 ## WHAT IS BEACH TIDES
 Beach Tides is a full-stack mobile first responisive web application that is built to give users in coastal United States real time and future tidal predictions.  Users can choose to search by zip code or city and state combinations.  Users can search for tide information without creating accounts or users can create accounts which will allow storing favorite locations and having personalized themes.  
 

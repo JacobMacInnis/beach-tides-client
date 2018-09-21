@@ -29,7 +29,7 @@
 }
 .fading-message-search-error {
   color: rgb(210, 30, 30);
-  opacity: 0;
+  opacity: 1;
   background:rgba(255, 255, 255, 0.397);
   margin:10%;
   padding: .55em;
