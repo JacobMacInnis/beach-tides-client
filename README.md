@@ -2,7 +2,7 @@
 # (www.beachtides.us)
 
 ## Screenshots 📸
-| <img alt="Landing/Login/Search Page" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/Landing-Page-Mobile.png?raw=true" width="350"> | <img alt="Landing/Login/Search Page" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/Loading-Spinning-Logo-Mobile.png?raw=true" width="350"> | <img alt="Night Theme" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/Night-Theme-Landing-Page.png?raw=true" width="350"> | 
+| <img alt="Landing/Login/Search Page" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-Mobile-Landing-Page.png?raw=true" width="350"> | <img alt="Tidal Results" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-Mobile-Search-Results.png?raw=true" width="350"> | <img alt="Night Theme" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-Mobile-Night-Theme.png?raw=true" width="350"> | 
 |:---:|:---:|:---:|
 | Landing Page | Login Page | Registration Page |
 
