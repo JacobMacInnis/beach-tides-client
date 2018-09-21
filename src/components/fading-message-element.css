@@ -10,8 +10,8 @@
   }
 }
 .fading-message {
-  margin-top: 50px;
-  opacity: 0;
+  margin: 50px 8% 0 8%;
+  opacity: 1;
   animation-name: 
  fadeOut;
   animation-duration: 10s; 

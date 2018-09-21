@@ -10,7 +10,7 @@ class FadingMessageElement extends React.Component {
       }
     return (
         <section className='fading-message-section'>
-          <h2 className='fading-message' >LOCATIONS MUST BE IN COASTAL UNITED STATES </h2>
+          <h2 className='fading-message' >LOCATIONS MUST BE IN A U.S. COASTAL STATE</h2>
         </section>
     )
   }
