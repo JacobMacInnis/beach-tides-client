@@ -44,3 +44,32 @@ Unfortunely, not all of us live directely within the town or area with which we 
 * mLab - cloud production database
 * Travis CI - cloud continuous integration
 * Heroku - cloud application platform
+
+## FUTURE IMPROVEMENTS
+
+### UI IMPROVEMENTS
+* Desktop layout and sizing
+* Relevent tidal content additons
+* Navigation bar consistency
+* Linking from search to favorites improvements
+* Additional themes
+
+### UX IMPROVEMENTS
+* Auto locational finding upon user arrival
+* Smooth loading animations
+* Friendlier search logic to help guide user to desired info
+
+### OTHER FRONT-END IMPROVEMENTS
+* Reduce API calls by storing tidal data in browser
+* Facebook Login
+* Full scale React unit testing
+
+### SERVER-SIDE IMPROVEMENTS
+* Location validation improvements
+
+
+## SOME ORIGINAL WIREFRAME DESIGNS
+
+| <img alt="Wireframe Search Page" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-WF-landing-search-page.png?raw=true" width="200"> | <img alt="User Saved Locations" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-WF-Search-Results.png?raw=true" width="200"> | <img alt="Unsucessful Search" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-WF-Unsucessful-Search.png?raw=true" width="200"> | <img alt="Logged In User flow" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-WF-.png?raw=true" width="200">
+|:--:|:--:|:--:|:--:|
+| Landing/Search Page | User Saved Locations |Unsucessful Search | Logged In User Flow |
