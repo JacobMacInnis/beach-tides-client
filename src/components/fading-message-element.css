@@ -11,7 +11,7 @@
 }
 .fading-message {
   margin: 50px 8% 0 8%;
-  opacity: 0;
+  opacity: 1;
   animation-name: 
  fadeOut;
   animation-duration: 10s; 
@@ -29,7 +29,7 @@
 }
 .fading-message-search-error {
   color: rgb(210, 30, 30);
-  opacity: 1;
+  opacity: 0;
   background:rgba(255, 255, 255, 0.397);
   margin:10%;
   padding: .55em;
