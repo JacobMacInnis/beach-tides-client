@@ -15,7 +15,7 @@ Unfortunely, not all of us live directely within the town or area with which we 
 
 ### TABLET SCREENSHOTS
 | <img alt="Landing/Login/Search Page Tablet" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-Tablet-Landing-Page.png?raw=true" width="350"> | <img alt="Night Theme Tidal Results" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-Tablet-Search-Results-Night-Theme.png?raw=true" width="350"> |  
-|:---:|:---:|
+|:--:|:--:|
 | Landing/Login/Search Page | Search Results |
 
 
