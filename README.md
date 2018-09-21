@@ -2,7 +2,7 @@
 # (www.beachtides.us)
 
 ## Screenshots 📸
-| <img alt="Landing Page" src="https://github.com/bvellek/aeropress-me-app/blob/master/public/img/design/screen-desk-landing.jpg?raw=true" width="350"> | <img alt="Login Page" src="https://github.com/bvellek/aeropress-me-app/blob/master/public/img/design/screen-desk-login.jpg?raw=true" width="350"> | <img alt="Registration Page" src="https://github.com/bvellek/aeropress-me-app/blob/master/public/img/design/screen-desk-registration.jpg?raw=true" width="350"> |
+| <img alt="Landing/Login/Search Page" " src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/Landing-Page-Mobile.png?raw=true" width="350"> | <img alt="Landing/Login/Search Page" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/Loading-Spinning-Logo-Mobile.png?raw=true" width="350"> | <img alt="Night Theme" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/Night-Theme-Landing-Page.png?raw=true" width="350"> | 
 |:---:|:---:|:---:|
 | Landing Page | Login Page | Registration Page |
 
