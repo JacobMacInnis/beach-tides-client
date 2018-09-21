@@ -1,0 +1,42 @@
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fading-message {
+  margin-top: 50px;
+  opacity: 0;
+  animation-name: 
+ fadeOut;
+  animation-duration: 10s; 
+}
+@keyframes fadeOutError {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fading-message-search-error {
+  color: rgb(210, 30, 30);
+  opacity: 0;
+  background:rgba(255, 255, 255, 0.397);
+  margin:10%;
+  padding: .55em;
+  border: 1px solid #2C365D;
+  border-radius: 3%;
+  animation-name: 
+ fadeOutError;
+  animation-duration: 10s; 
+}
+

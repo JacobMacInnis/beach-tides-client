@@ -7,9 +7,11 @@ import TideResults from './components/tide-results';
 import Favorites from './components/favorites';
 import Nav from './components/nav';
 import Theme from './components/theme';
+import FadingMessageElement from './components/fading-message-element';
 import { fetchTheme } from './actions/theme';
 import BeachTidesLogo from './img/BeachTidesLogo.png';
 import './App.css';
+
 
 export class App extends React.Component {
   componentDidMount() {
@@ -31,6 +33,7 @@ export class App extends React.Component {
         <Route exact path="/" render={() => this.props.tideData === undefined || this.props.tideData.length < 1 ? <SearchForm />  : (<Redirect to='/results' />) }  />
         <Route exact path='/results' component={TideResults} />
         <Route exact path="/favorites"  component={Favorites} />
+        { <FadingMessageElement/> }
       </div>
     );
   }

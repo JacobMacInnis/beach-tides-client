@@ -49,8 +49,8 @@ const mapStateToProps = state => {
   }
 }
 
-const searchFrom = reduxForm({
+const searchForm = reduxForm({
   form: 'search',
 })(SearchForm);
 
-export default connect(mapStateToProps)(searchFrom)
+export default connect(mapStateToProps)(searchForm)
