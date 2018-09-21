@@ -6,7 +6,7 @@ import SearchForm from './components/search-form';
 import TideResults from './components/tide-results';
 import Favorites from './components/favorites';
 import Nav from './components/nav';
-import Theme from './components/theme';
+// import Theme from './components/theme';
 import FadingMessageElement from './components/fading-message-element';
 import { fetchTheme } from './actions/theme';
 import BeachTidesLogo from './img/BeachTidesLogo.png';
@@ -26,7 +26,7 @@ export class App extends React.Component {
     }
     return (
       <div className={this.props.theme === 'night' ? 'App night' : 'App day'} >
-        { this.props.isAuthenticated && <Theme /> }
+        {/* { this.props.isAuthenticated && <Theme /> } */}
         <Header />
         <Nav />
         { loading === true && <div className='water-grow'><div className='water-move'><img src={BeachTidesLogo} className="water-spin" alt="logo" /></div></div>}

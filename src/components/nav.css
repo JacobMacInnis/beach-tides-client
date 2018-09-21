@@ -1,3 +1,6 @@
+.nav {
+
+}
 .favorites-link {
   display: inline-block;
   font-size: 1em;
@@ -7,7 +10,7 @@
   border: 1px solid rgba(7,19,69,1);
   padding: .25em;
   border-radius: 2%;
-  /* margin-top: 1em; */
+  margin-right: 1em;
   left: 0;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(25,201,255,0.59);
   -moz-box-shadow: 0px 0px 3px 1px rgba(25,201,255,0.59);
@@ -25,4 +28,33 @@
   -webkit-box-shadow: 0px 0px 3px 1px rgba(125,125,125,1);
   -moz-box-shadow: 0px 0px 3px 1px rgba(125,125,125,1);
   box-shadow: 0px 0px 3px 1px rgba(125,125,125,1);
+}
+/* If the screen size is greater than 599px wide */
+@media  only screen and (min-device-width : 400px) and (max-device-width : 799px) {
+  .onoffswitch {
+    z-index: 1000;
+    display:inline-block;
+    margin-top: 0%;
+  }
+}
+
+
+@media  only screen and (min-device-width : 800px)  { 
+  .nav {
+    position: absolute;
+    /* display: inline-block; */
+    top: 10px;
+    margin: 0 5px 5px 5px;
+    right: 10%;
+    z-index: 1000;
+  }
+  .favorites-link {
+    margin: 5%;
+  }
+  .logout {
+
+  }
+  .onoffswitch {
+    margin: -70px -50px 0 0;
+  }
 }

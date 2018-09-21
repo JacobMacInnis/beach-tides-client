@@ -78,3 +78,9 @@ html, body, #root {
     transform: translate(100vw, 175px)
   } 
 }  */
+/* If the screen size is greater than 599px wide */
+@media  only screen and (min-device-width : 800px) {
+  .App {
+    padding-top: 18%;
+  }
+}

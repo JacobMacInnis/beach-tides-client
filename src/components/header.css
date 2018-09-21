@@ -21,3 +21,35 @@
   margin: 2% 5% 0 5%;
   padding-bottom: 5px;
 }
+/* If the screen size is greater than 599px wide */
+@media  only screen and (min-device-width : 800px) and (max-device-width : 984px) {
+  .header {
+    text-align: left;
+    height: 135px;
+  }
+  .logo {
+    width: 50%;
+    margin-top: 1%;
+  }
+}
+@media  only screen and (min-device-width : 985px) and (max-device-width : 1249px){
+  .header {
+    text-align: left;
+    height: 100px;
+  }
+  .logo {
+    width: 25vw;
+    margin-top: 1%;
+  }
+}
+@media  only screen and (min-device-width : 1250px) {
+  .header {
+    text-align: left;
+    height: 100px;
+  }
+  .logo {
+    width: 285px;
+    margin-top: 1%;
+  }
+}
+/* @media  only screen and (min-device-width : 599px) and (max-device-width : 1000px) { */

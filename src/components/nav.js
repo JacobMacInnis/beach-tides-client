@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Logout from './logout';
 import MyLocationsLink from './my-locations-link';
 import Login from './login';
+import Theme from './theme';
 import './nav.css';
 
 export class Nav extends Component {
@@ -11,8 +12,9 @@ export class Nav extends Component {
     return (
       <nav className='nav'>
         { !this.props.isAuthenticated && <Route component={Login}/> }
-        { (!this.props.onFavorites) && this.props.isAuthenticated && <Route component={MyLocationsLink} /> }
+        { this.props.isAuthenticated && <Route component={MyLocationsLink} /> }
         {  this.props.isAuthenticated && <Route component={Logout}/> }
+        { this.props.isAuthenticated && <Theme /> }
       </nav>
     )
   }

@@ -1,10 +1,11 @@
+/* For widths of 320px */
 .onoffswitch {
   position: absolute; 
   width: 75px;
   -webkit-user-select:none; 
   -moz-user-select:none; 
   -ms-user-select: none;
-  margin-top: -1%;
+  margin-top: -10%;
   right: 0.5%;
 }
 .onoffswitch-checkbox {
