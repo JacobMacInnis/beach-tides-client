@@ -29,7 +29,7 @@ export class App extends React.Component {
         { this.props.isAuthenticated && <Theme /> }
         <Header />
         <Nav />
-        { loading === true && <img src={BeachTidesLogo} className="App-logo" alt="logo" /> }
+        { loading === true && <div className='water-grow'><div className='water-move'>LOADING<img src={BeachTidesLogo} className="water-spin" alt="logo" /></div></div>}
         <Route exact path="/" render={() => this.props.tideData === undefined || this.props.tideData.length < 1 ? <SearchForm />  : (<Redirect to='/results' />) }  />
         <Route exact path='/results' component={TideResults} />
         <Route exact path="/favorites"  component={Favorites} />

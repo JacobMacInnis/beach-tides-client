@@ -29,12 +29,52 @@ html, body, #root {
   background-size:cover;
   background-attachment: fixed;
 }
-.App-logo {
-  animation: App-logo-spin infinite 2s linear;
-  width: 20%;
+.water-spin {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  animation: water-spin infinite 2s linear
 }
-
-@keyframes App-logo-spin {
+@keyframes water-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.water-move { 
+  position: absolute;
+  animation: water-move infinite 2s linear;
+}
+@keyframes water-move {
+  0% {
+    transform: translate(-110px, 110px) 
+  }
+  10% {
+    transform: translate(5vw, 70px)
+  }
+  20% {
+    transform: translate(10vw, 35px)
+  }
+  30% {
+    transform: translate(15vw, 0px)
+  }
+  40% {
+    transform: translate(20vw, -20px)
+  }
+  50% {
+    transform: translate(25vw, 20px)
+  }
+  60% {
+    transform: translate(30vw, 80px)
+  }
+  70% {
+    transform: translate(40vw, 110px)
+  }
+  80% {
+    transform: translate(60vw, 125px)
+  }
+  90% {
+    transform: translate(80vw, 150px)
+  }
+  100% {
+    transform: translate(100vw, 175px)
+  } 
 } 
