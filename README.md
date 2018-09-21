@@ -10,7 +10,7 @@
 Beach Tides is a full-stack mobile first responisive web application that is built to give users in coastal United States real time and future tidal predictions.  Users can choose to search by zip code or city and state combinations.  Users can search for tide information without creating accounts or users can create accounts which will allow storing favorite locations and having personalized themes.  
 
 ## WHY MAKE THIS APP?
-Unfortunely not all of us live directely within the town or area with which we seek tide information. Many users search tide info on areas outside of there immediate location.  Whether the user is a surfer a beach goer or a boater the user can save locations that will load upon arrival.  
+Unfortunely, not all of us live directely within the town or area with which we seek tide information. Many users search tide info on areas outside of there immediate location.  Whether the user is a surfer a beach goer or a boater the user can save locations that will load upon arrival.  
 
 ## TECH STACK
 ### Beach Tides uses a MERN stack
