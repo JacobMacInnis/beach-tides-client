@@ -7,12 +7,29 @@ Beach Tides is a full-stack mobile first responisive web application that is bui
 ## WHY MAKE THIS APP?
 Unfortunely not all of us live directely within the town or area with which we seek tide information. Many users search tide info on areas outside of there immediate location.  Whether the user is a surfer a beach goer or a boater the user can save locations that will load upon arrival.  
 
-This App uses a MERN stack:
+## TECH STACK
+This App uses a MERN stack
 
-React
-Redux
-Node.js and Express for the backend
+### FRONT-END
+* HTML5
+* CSS3
+* JavaScript
+* React.js front end framework
+* Redux.js state management
+* moment.js time zone calculation
+* react-google-login
 
-MongoDB for the database
+### BACK-END
+* Node.js backend run-time environment
+* Express.js backend framework and architecture
+* MongoDB for database
+* Mongoose - object modeling for mongodb
+* Google OAuth 2.0 and JWTs for authentication
 
-Google OAuth 2.0 and JWTs for authentication
+### TESTING and DEPOLYMENT
+* Mocha - back-end testing framework
+* Chai - assertion library backend testing
+* Enzyme - React.js testing utility
+* mLab - cloud production database
+* Travis CI - cloud continuous integration
+* Heroku - cloud application platform
