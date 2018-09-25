@@ -1,4 +1,4 @@
-import { API_BASE_URL } from '../config';
+import { REACT_APP_API_BASE_URL } from '../config';
 
 export const FETCH_LOCATION_REQUEST = 'FETCH_LOCATION_REQUEST';
 export const fetchLocationRequest = () => ({
@@ -30,7 +30,7 @@ export const clearTideData = () => ({
 
 export const fetchLocation = (location, date) => dispatch => {
   dispatch(fetchLocationRequest());
-  return fetch(`${API_BASE_URL}/location?location=${location}&date=${date}`)
+  return fetch(`${REACT_APP_API_BASE_URL}/location?location=${location}&date=${date}`)
   .then(res => {
       if (!res.ok) {
         return res.json().then(data => Promise.reject(data))

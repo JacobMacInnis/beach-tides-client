@@ -1,4 +1,4 @@
-import {API_BASE_URL} from '../config';
+import { REACT_APP_API_BASE_URL } from '../config';
 import { loadAuthToken } from './../local-storage';
 
 export const NEW_LOCATION_ATTEMPT = 'NEW_LOCATION_ATTEMPT';
@@ -45,7 +45,7 @@ export const addNewLocation = newFavorite => dispatch => {
   dispatch(newLocationAttempt(newFavorite));
   dispatch(newLocationRequest());
   const authToken = loadAuthToken();
-  return fetch(`${API_BASE_URL}/favorites`, {
+  return fetch(`${REACT_APP_API_BASE_URL}/favorites`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export const addNewLocation = newFavorite => dispatch => {
 export const deleteFavorite = id => dispatch => {
   dispatch(removeLocationRequest())
   const authToken = loadAuthToken();
-  return fetch(`${API_BASE_URL}/favorites/${id}`, {
+  return fetch(`${REACT_APP_API_BASE_URL}/favorites/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

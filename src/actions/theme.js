@@ -1,4 +1,4 @@
-import { API_BASE_URL } from '../config';
+import { REACT_APP_API_BASE_URL } from '../config';
 import { loadAuthToken } from './../local-storage';
 
 export const CHANGE_THEME_REQUEST = 'CHANGE_THEME_REQUEST';
@@ -37,7 +37,7 @@ export const setThemeOnLogout = () => ({
 export const changeTheme = toggleTheme => dispatch => {
   dispatch(changeThemeRequest());
   const authToken = loadAuthToken();
-  return fetch(`${API_BASE_URL}/user-theme`, {
+  return fetch(`${REACT_APP_API_BASE_URL}/user-theme`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export const changeTheme = toggleTheme => dispatch => {
 export const fetchTheme = () => dispatch => {
   dispatch(getThemeRequest());
   const authToken = loadAuthToken();
-  return fetch(`${API_BASE_URL}/user-theme`, {
+  return fetch(`${REACT_APP_API_BASE_URL}/user-theme`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

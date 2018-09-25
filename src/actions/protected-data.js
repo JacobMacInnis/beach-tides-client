@@ -1,4 +1,4 @@
-import {API_BASE_URL} from '../config';
+import { REACT_APP_API_BASE_URL } from '../config';
 import { loadAuthToken } from './../local-storage';
 
 
@@ -22,7 +22,7 @@ export const fetchProtectedDataError = error => ({
 export const fetchProtectedData = () => (dispatch) => {
     dispatch(fetchProtectedDataRequest());
     const authToken = loadAuthToken();
-    return fetch(`${API_BASE_URL}/favorites`, {
+    return fetch(`${REACT_APP_API_BASE_URL}/favorites`, {
         method: 'GET',
         headers: {
             // Provide our auth token as credentials
