@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './login.css';
 import { connect } from 'react-redux';
 import { GoogleLogin } from 'react-google-login';
-import { GOOGLE_CLIENT_ID, API_V1_AUTH_GOOGLE} from './../config';
+import { REACT_APP_GOOGLE_CLIENT_ID, REACT_APP_API_V1_AUTH_GOOGLE} from './../config';
 import { Redirect } from 'react-router-dom';
 import { authRequest, authSuccess, authError } from './../actions/auth';
 import { saveAuthToken } from '../local-storage';
@@ -21,7 +21,7 @@ export class Login extends Component {
       mode: 'cors',
       cache: 'default'
     };
-    fetch(API_V1_AUTH_GOOGLE, options)
+    fetch(REACT_APP_API_V1_AUTH_GOOGLE, options)
     .then(response => {
       const token = response.headers.get('x-auth-token');
       response.json()
@@ -41,7 +41,7 @@ export class Login extends Component {
     return  (
         <div className='google-login'>
           <GoogleLogin
-            clientId={GOOGLE_CLIENT_ID}
+            clientId={REACT_APP_GOOGLE_CLIENT_ID}
             buttonText="Login with Google"
             onSuccess={this.googleResponse}
             onFailure={this.googleResponse}
