@@ -11,7 +11,7 @@ Beach Tides is a full-stack mobile first responisive web application that is bui
 | Landing/Login/Search Page | Search Results | Night Theme | 
 
 ## WHY MAKE THIS APP?
-Unfortunely, not all of us live directely within the town or area with which we seek tide information. Many users search tide info on areas outside of there immediate location.  Whether the user is a surfer a beach goer or a boater the user can save locations that will load upon arrival.  
+Unfortunately, not all of us live directly within the town or area with which we seek tide information. Many users search tide info on areas outside of there immediate location.  Whether the user is a surfer a beach goer or a boater the user can save locations that will load upon arrival.  
 
 ### TABLET SCREENSHOTS
 | <img alt="Landing/Login/Search Page Tablet" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-Tablet-Landing-Page.png?raw=true" width="430"> | <img alt="Night Theme Tidal Results" src="https://github.com/JacobMacInnis/beach-tides-client/blob/master/src/img/README.images/BeachTides-Tablet-Search-Results-Night-Theme.png?raw=true" width="430"> |  
