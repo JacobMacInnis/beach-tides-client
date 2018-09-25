@@ -60,7 +60,7 @@ export class Favorites extends React.Component {
             )
           })
           return (
-            <div className={this.props.theme === 'night' ? 'location-results-night' : 'location-results-day'} key={index}>
+            <div className={this.props.theme === 'night' ? 'location-results location-results-night' : 'location-results location-results-day'} key={index}>
               <h2>{`${favObj.city}, ${favObj.state}`} </h2><button className='remove-favorite' id={favObj._id} value={favObj._id} onClick={target => this.handleRemoveFavorite(target)}>X</button>
               <h4>UPCOMING TIDES</h4>
               <div className='row'>
@@ -80,7 +80,7 @@ export class Favorites extends React.Component {
           <div className="favorites-container">
               {/* <Theme /> */}
               <div className={this.props.theme === 'night' ? 'favorites-header-night' : 'favorites-header-day'}>
-                <h2 className='favorites-title'>FAVORITE LOCATIONS</h2>
+                <h2 className='favorites-title'>MY LOCATIONS</h2>
                 <FormFavorites /> 
               </div>
               <div className='favorite-results'>
