@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter, Redirect } from 'react-router-dom';
+
 import Header from './components/header';
 import SearchForm from './components/search-form';
 import TideResults from './components/tide-results';
 import Favorites from './components/favorites';
 import Nav from './components/nav';
-// import Theme from './components/theme';
 import FadingMessageElement from './components/fading-message-element';
+
 import { fetchTheme } from './actions/theme';
 import BeachTidesLogo from './img/BeachTidesLogo.png';
 import './App.css';
