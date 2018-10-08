@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Route, withRouter, Redirect } from 'react-router-dom';
 
 import Header from './components/header';
+import Instruction from './components/instruction';
 import SearchForm from './components/search-form';
 import TideResults from './components/tide-results';
 import Favorites from './components/favorites';
@@ -25,12 +26,14 @@ export class App extends React.Component {
     if ( this.props.searchLoading || this.props.protectedLoading || this.props.favoritesLoading || this.props.themeLoading ) {
       loading = true;
     }
+    console.log(this.props.tideData.length, 'tideData')
     return (
       <div className={this.props.theme === 'night' ? 'App night' : 'App day'} >
         {/* { this.props.isAuthenticated && <Theme /> } */}
         <Header />
         <Nav />
         { loading === true && <div className='water-grow'><div className='water-move'><img src={BeachTidesLogo} className="water-spin" alt="logo" /></div></div>}
+        {(this.props.tideData.length === 0) && <Instruction /> }
         <Route exact path="/" render={() => this.props.tideData === undefined || this.props.tideData.length < 1 ? <SearchForm />  : (<Redirect to='/results' />) }  />
         <Route exact path='/results' component={TideResults} />
         <Route exact path="/favorites"  component={Favorites} />
