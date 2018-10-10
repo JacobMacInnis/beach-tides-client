@@ -31,11 +31,11 @@ export class App extends React.Component {
         <Header />
         <Nav />
         { loading === true && <div className='water-grow'><div className='water-move'><img src={BeachTidesLogo} className="water-spin" alt="logo" /></div></div>}
-        {(this.props.tideData.length === 0) && <Instruction /> }
         <Route exact path="/" render={() => this.props.tideData === undefined || this.props.tideData.length < 1 ? <SearchForm />  : (<Redirect to='/results' />) }  />
         <Route exact path='/results' component={TideResults} />
         <Route exact path="/favorites"  component={Favorites} />
         { <FadingMessageElement/> }
+        {(this.props.tideData.length === 0) && <Instruction /> }
       </div>
     );
   }

@@ -12,6 +12,7 @@
   box-shadow: 0px 0px 25px 0px rgba(125,125,125,1);
 }
 .search-tides-title {
+  font-size: 2em;
   display: inline-block;
   padding: 2% 5%;
 }
