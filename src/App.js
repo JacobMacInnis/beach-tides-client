@@ -26,10 +26,8 @@ export class App extends React.Component {
     if ( this.props.searchLoading || this.props.protectedLoading || this.props.favoritesLoading || this.props.themeLoading ) {
       loading = true;
     }
-    console.log(this.props.tideData.length, 'tideData')
     return (
       <div className={this.props.theme === 'night' ? 'App night' : 'App day'} >
-        {/* { this.props.isAuthenticated && <Theme /> } */}
         <Header />
         <Nav />
         { loading === true && <div className='water-grow'><div className='water-move'><img src={BeachTidesLogo} className="water-spin" alt="logo" /></div></div>}

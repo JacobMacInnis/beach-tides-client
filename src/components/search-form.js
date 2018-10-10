@@ -18,8 +18,8 @@ export class SearchForm extends React.Component {
           searchError = <div className="search-error">{this.props.searchError.message}</div>;
         }
     return (
-      <form className={this.props.theme === 'night' ? 'search-form-night' : 'search-form-day'} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <h2 className={this.props.theme === 'night' ? 'search-tides-title-night' : 'search-tides-title-day'}>SEARCH TIDES</h2>
+      <form className={this.props.theme === 'night' ? 'search-form search-form-night' : 'search-form search-form-day'} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+        <h2 className={this.props.theme === 'night' ? 'search-tides-title search-tides-title-night' : 'search-tides-title search-tides-title-day'}>SEARCH TIDES</h2>
         {searchError}
         <Field 
           component={Input}
