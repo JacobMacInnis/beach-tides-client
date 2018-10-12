@@ -51,3 +51,14 @@
   color: red;
   font-size: 1.2em;
 }
+/* If the screen size is greater than 799px wide */
+@media  only screen and (min-device-width : 800px) {
+  .search-form {
+    margin: 3% 1% 0 1%;
+  }
+}
+@media  only screen and (min-device-width : 985px) {
+  .search-form {
+    margin: 1% 1% 0 1%;
+  }
+}

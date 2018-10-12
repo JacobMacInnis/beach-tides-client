@@ -41,10 +41,14 @@ html, body, #root {
 }
 @media  only screen and (min-device-width : 800px) {
   .App {
-    padding-top: 150px;
+    padding-top: 125px;
   }
 }
-
+@media  only screen and (min-device-width : 1000px) {
+  .App {
+    padding-top: 100px;
+  }
+}
 /* .water-move { 
   position: absolute;
   animation: water-move infinite 2s linear;
