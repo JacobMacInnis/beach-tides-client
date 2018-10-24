@@ -9,7 +9,7 @@ import TideResults from './components/tide-results';
 import Favorites from './components/favorites';
 import Nav from './components/nav';
 import FadingMessageElement from './components/fading-message-element';
-import Advertisement from './components/advertisement';
+// import Advertisement from './components/advertisement';
 
 import { fetchTheme } from './actions/theme';
 import BeachTidesLogo from './img/BeachTidesLogo.png';
@@ -37,7 +37,7 @@ export class App extends React.Component {
         <Route exact path="/favorites"  component={Favorites} />
         { <FadingMessageElement/> }
         {(this.props.tideData.length === 0) && <Instruction /> }
-        <Advertisement />
+        {/* <Advertisement /> */}
       </div>
     );
   }
