@@ -2,7 +2,7 @@
 # (www.beachtides.us)
 
 ## WHAT IS BEACH TIDES
-Beach Tides is a full-stack mobile first responisive web application that is built to give users in coastal United States real time and future tidal predictions.  Users can choose to search by zip code or city and state combinations.  Users can search for tide information without creating accounts or users can create accounts which will allow storing favorite locations and having personalized themes. 
+Beach Tides is a full-stack mobile first responsive web application that is built to give users in coastal United States real time and future tidal predictions.  Users can choose to search by zip code or city and state combinations.  Users can search for tide information without creating accounts or users can create accounts which will allow storing favorite locations and having personalized themes. 
 
 ### SCREENSHOTS
 
