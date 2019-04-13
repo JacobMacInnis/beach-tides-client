@@ -54,7 +54,7 @@ const mapStateToProps = state => {
     protectedLoading: state.protected.loading,
     favoritesLoading: state.favorite.loading,
     themeLoading: state.theme.loading
-  }
-}
+  };
+};
 
 export default withRouter(connect(mapStateToProps)(App));

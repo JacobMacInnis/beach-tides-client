@@ -2,7 +2,7 @@ import React from 'react';
 import './tide-results.css';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
-import SearchForm from './search-form'
+import SearchForm from './search-form';
 import { clearTideData } from './../actions/index';
 
 import { tidesDisplay } from './../custom-functions';
@@ -20,7 +20,7 @@ export class TideResults extends React.Component {
     if (this.props.tideData !== undefined && this.props.tideData.length > 0 ) {
       tidesDisplay = this.handleTidesDisplay(this.props.tideData, this.props.theme);
     } else  {
-      return <Redirect to='/' />
+      return <Redirect to='/' />;
     }
     return (
       <div className='tide-results-container'>
@@ -34,9 +34,9 @@ export class TideResults extends React.Component {
         </div>
         <SearchForm />
       </div>
-    )
+    );
   }
-} 
+}
 const mapStateToProps = state => {
   return {
     tideData: state.search.tideData,
@@ -44,7 +44,7 @@ const mapStateToProps = state => {
     state: state.search.state,
     searchDate: state.search.searchDate,
     theme: state.theme.theme,
-  }
-} 
+  };
+} ;
 
-export default withRouter(connect(mapStateToProps)(TideResults))
+export default withRouter(connect(mapStateToProps)(TideResults));
