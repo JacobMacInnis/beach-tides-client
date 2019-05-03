@@ -38,7 +38,6 @@ export const fetchLocation = (location, date) => dispatch => {
       return res.json();
   })
   .then(location => {
-    console.log('Location', location)
     dispatch(fetchLocationSuccess(location));
   })
   .catch(err => {

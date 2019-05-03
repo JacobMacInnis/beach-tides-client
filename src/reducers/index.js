@@ -18,7 +18,6 @@ export default function locationReducer(state = initialState, action) {
       loading: true
     });
   } else if (action.type === FETCH_LOCATION_SUCCESS) {
-    console.log(action, 'TIDEDATA');
     return Object.assign({}, state, {
       loading: false,
       error: null,

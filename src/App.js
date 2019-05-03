@@ -27,7 +27,6 @@ export class App extends React.Component {
     if ( this.props.searchLoading || this.props.protectedLoading || this.props.favoritesLoading || this.props.themeLoading ) {
       loading = true;
     }
-    console.log(this.props.tideData, '[TIDE_DATA]');
     return (
       <div className={this.props.theme === 'night' ? 'App night' : 'App day'} >
         <Header />
@@ -37,7 +36,7 @@ export class App extends React.Component {
         <Route exact path='/results' component={TideResults} />
         <Route exact path="/favorites"  component={Favorites} />
         { <FadingMessageElement/> }
-        {/* {(this.props.tideData.length === 0) && <Instruction /> } */}
+        {(this.props.tideData.length === 0) && <Instruction /> }
         {/* <Advertisement /> */}
       </div>
     );
