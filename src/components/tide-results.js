@@ -17,21 +17,22 @@ export class TideResults extends React.Component {
   }
   render() {
     let tidesDisplay;
-    if (this.props.tideData !== undefined) {
-      tidesDisplay = this.handleTidesDisplay(this.props.tideData, this.props.theme);
+    let { tideData, theme, city, state,  }= this.props;
+    if (tideData !== undefined) {
+      tidesDisplay = this.handleTidesDisplay(tideData, theme);
     } else  {
       return <Redirect to='/' />;
     }
     return (
       <div className='tide-results-container'>
-        <div className={this.props.theme === 'night' ? 'search-tide-results search-tide-results-night' : 'search-tide-results search-tide-results-day'}>
-          <h1 className='city-state'>{`${this.props.city}, ${this.props.state}`}</h1>
+        {tideData.length > 0 ? <div className={theme === 'night' ? 'search-tide-results search-tide-results-night' : 'search-tide-results search-tide-results-day'}>
+          <h1 className='city-state'>{`${city}, ${state}`}</h1>
           <h5>UPCOMING TIDES</h5>
           <button className='remove-search-results' onClick={() => this.handleClearTideData()} >X</button>
           <div className='row'>
             {tidesDisplay}
           </div>
-        </div>
+        </div> : ''}
         <SearchForm />
       </div>
     );

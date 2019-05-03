@@ -35,7 +35,10 @@ export default function locationReducer(state = initialState, action) {
     });
   } else if (action.type === CLEAR_TIDE_DATA) {
     return Object.assign({}, state, {
-      tideData: []
+      tideData: [],
+      city: '',
+      state: '',
+      searchDate: ''
     });
   }
     return state;
