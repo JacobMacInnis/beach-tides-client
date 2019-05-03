@@ -4,11 +4,12 @@ import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { fetchLocation } from './../actions/index';
 import './search-form.css';
+import moment from 'moment';
 
 export class SearchForm extends React.Component {
   onSubmit(values) {
     const location = values.location || '';
-    const date = values.date;
+    const date = moment(values.date, 'YYYY-MM-DD').format('MM DD YYYY')
     return this.props.dispatch(
     fetchLocation(location, date))
   };

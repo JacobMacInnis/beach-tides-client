@@ -17,7 +17,7 @@ export class TideResults extends React.Component {
   }
   render() {
     let tidesDisplay;
-    if (this.props.tideData !== undefined && this.props.tideData.length > 0 ) {
+    if (this.props.tideData !== undefined) {
       tidesDisplay = this.handleTidesDisplay(this.props.tideData, this.props.theme);
     } else  {
       return <Redirect to='/' />;
