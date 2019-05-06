@@ -36,7 +36,7 @@ export class App extends React.Component {
         <Route exact path='/results' component={TideResults} />
         <Route exact path="/favorites"  component={Favorites} />
         { <FadingMessageElement/> }
-        {(this.props.tideData.length === 0) && <Instruction /> }
+        {(this.props.tideData === undefined || this.props.tideData.length === 0) && <Instruction /> }
         {/* <Advertisement /> */}
       </div>
     );
